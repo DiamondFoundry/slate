@@ -34,7 +34,8 @@ DF API expects for the JWT token to be included only in requests to Order endpoi
 You must replace <code>meowmeowmeow</code> with your personal jwt-token key.
 </aside>
 
-## Login
+## Login /login
+/login authenticates user, response body contains a success message and response headers include authorization token.
 
 ```shell
 curl -H "Content-Type: application/json" \
@@ -192,9 +193,63 @@ This endpoint retrieves a specific diamond.
 
 `POST https://dfoundry-diamonds.herokuapp.com/api/v1/orders`
 
-### Request body Parameters
+### Request body 
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
+> Request body must be structured like this: 
 
+```json
+{
+  "order":  
+	  {
+			"source_order_id": 781449461863,
+			"payment_method": "net30",
+			"shipping_address_attributes":  
+				{
+					"street_address": "731 S Spring St",
+					"city": "Los Angeles",
+					"country": "United States",
+					"state": "California",
+					"name": "Alex Szabo"
+				},
+			"order_items_attributes":  
+				[{
+					"diamond_id": "c41a93db-2b6a-4ffe-95e0-fa24b0d3f3d6",
+					"sold_price": 500.45,
+					"tax_collected": "36.28",
+					"tax_rate": 0.0725,
+					"quantity": 1
+				}]
+    }
+}
+```
+
+## Order Parameters
+
+Parameter | Description | Type | Required
+--------- | ----------- | ---- | --------
+source_order_id | The order ID on the platform where the order was placed | int | required
+payment_method | Method used to pay for order | string | required
+metadata | Additional metadata about the order | jsonb | optional
+
+## Nested shipping_address_attributes
+
+Parameter | Description | Type | Required
+--------- | ----------- | ---- | --------
+street_address | Address to send order | string | required
+city | | string | required
+state | state/province of order | string | required
+country | country to send order (ex: 'USA') | string | required
+zip | zip code | string | not required 
+name | name of addressee/recipient | string | not required
+phone | phone number of recipient | string | not required
+attention | | string | not required
+
+## Nested order_items_attributes
+
+Parameter | Description | Type | Required
+--------- | ----------- | ---- | --------
+diamond_id | DF API diamond id | uuid/string | required
+sold_price | Amount diamond sold for | decimal | required
+tax_collected | Tax collected on diamond | decimal | optional
+tax_rate | Sales tax rate pct of where sale occurred (ex 0.0125) | decimal | optional
+quantity | Quantity sold | integer | required
