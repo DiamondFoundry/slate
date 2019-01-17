@@ -3,12 +3,9 @@ title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
-  - ruby
-  - python
   - javascript
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
 
 includes:
@@ -19,219 +16,183 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to Diamond Foundry API! You can use our API to access product data, inventory data, and to place orders.
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
-
-This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
+You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
 # Authentication
 
-> To authorize, use this code:
+JWT Token authentication is used.
 
-```ruby
-require 'kittn'
+To authenticate and get a token, hit the /login endpoint with your user credentials (email, password):
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
+DF API expects for the JWT token to be included only in requests to Order endpoints:
 
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+`Authorization: Bearer meowmeowmeow`
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>meowmeowmeow</code> with your personal jwt-token key.
 </aside>
 
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
+## Login
 
 ```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
+curl -H "Content-Type: application/json" \
+  --request POST \
+  --data '{"email":"youremail@example.com","password":"password"}' \
+  -k \
+  https://dfoundry-diamonds.herokaupp.com/login
 ```
 
-```javascript
-const kittn = require('kittn');
+> Request body:
 
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
+```json
+{
+	"email": "youremail@example.com",
+	"password": "password"
+}
 ```
 
-> The above command returns JSON structured like this:
+> Note: successful authentication will include Authorization header in response headers. Response body is structured as so:
+
+```json
+{
+  "message": "Authentication successful. JWT token included in this response."
+}
+```
+
+# Diamond Endpoints
+
+## /api/v1/diamonds
+
+This endpoint retrieves all purchasable diamonds (available in US) with carat weight above 0.84.
+
+### HTTP Request
+
+`GET https://dfoundry-diamonds.herokuapp.com/api/v1/diamonds`
+
+> Response body is structured like this:
 
 ```json
 [
   {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
+    "carat": 1.18,
+    "clarity": "SI2",
+    "color": "J",
+    "crown_angle": 35.0,
+    "crown_height": 15.0,
+    "cut_grade": "Ideal",
+    "depth_mm": 4.21,
+    "depth_pct": 61.6,
+    "fluorescence": "None",
+    "gcal_cert_id": null,
+    "girdle": "Medium to Slightly Thick",
+    "id": "61ab3229-168d-40b3-b38e-5199665cadb0",
+    "length_mm": 6.81,
+    "lot_id": 122049,
+    "netsuite_id": 15724,
+    "ns_location": "Los Angeles",
+    "pavilion_angle": 40.8,
+    "pavilion_height": 43.0,
+    "polish": "Excellent",
+    "quantity": 1,
+    "shape": "Brilliant Round",
+    "symmetry": "Excellent",
+    "table_size": 57.0,
+    "unit_price_msrp_usd": "2549.0"
   },
   {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
+    "carat": 1.12,
+    "clarity": "VS1",
+    "color": "I",
+    "crown_angle": 34.0,
+    "crown_height": 14.5,
+    "cut_grade": "Ideal",
+    "depth_mm": 4.11,
+    "depth_pct": 61.3,
+    "fluorescence": "None",
+    "gcal_cert_id": 281060048,
+    "girdle": "Medium to Slightly Thick",
+    "id": "4aa1c735-a3da-478d-8e2e-f9c7f83269c7",
+    "length_mm": 6.67,
+    "lot_id": 147758,
+    "netsuite_id": 17530,
+    "ns_location": "Los Angeles",
+    "pavilion_angle": 41.0,
+    "pavilion_height": 43.5,
+    "polish": "Excellent",
+    "quantity": 1,
+    "shape": "Brilliant Round",
+    "symmetry": "Excellent",
+    "table_size": 57.0,
+    "unit_price_msrp_usd": "3427.0"
   }
 ]
 ```
 
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
 ```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
+curl 'https://dfoundry-diamonds.herokuapp.com/api/v1/diamonds'
 ```
 
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+## /api/v1/diamonds/{lot_id}
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`GET https://dfoundry-diamonds.herokuapp.com/api/v1/diamonds/{lot_id}`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to retrieve
+lot_id | The lot_id of the diamond to retrieve
 
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
+> The endpoint returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "deleted" : ":("
+  "carat": 1.18,
+  "clarity": "SI2",
+  "color": "J",
+  "crown_angle": 35.0,
+  "crown_height": 15.0,
+  "cut_grade": "Ideal",
+  "depth_mm": 4.21,
+  "depth_pct": 61.6,
+  "fluorescence": "None",
+  "gcal_cert_id": null,
+  "girdle": "Medium to Slightly Thick",
+  "id": "61ab3229-168d-40b3-b38e-5199665cadb0",
+  "length_mm": 6.81,
+  "lot_id": 122049,
+  "netsuite_id": 15724,
+  "ns_location": "Los Angeles",
+  "pavilion_angle": 40.8,
+  "pavilion_height": 43.0,
+  "polish": "Excellent",
+  "quantity": 1,
+  "shape": "Brilliant Round",
+  "symmetry": "Excellent",
+  "table_size": 57.0,
+  "unit_price_msrp_usd": "2549.0"
 }
 ```
 
-This endpoint deletes a specific kitten.
+```shell
+curl 'https://dfoundry-diamonds.herokuapp.com/api/v1/diamonds/122049'
+```
+
+This endpoint retrieves a specific diamond.
+
+
+# Order Endpoints
+
+## Create an order
 
 ### HTTP Request
 
-`DELETE http://example.com/kittens/<ID>`
+`POST https://dfoundry-diamonds.herokuapp.com/api/v1/orders`
 
-### URL Parameters
+### Request body Parameters
 
 Parameter | Description
 --------- | -----------
