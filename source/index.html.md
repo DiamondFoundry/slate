@@ -187,7 +187,9 @@ This endpoint retrieves a specific diamond.
 
 # Order Endpoints
 
-## Create an order
+## Create Order 
+
+### POST /api/v1/orders
 
 ### HTTP Request
 
@@ -253,3 +255,115 @@ sold_price | Amount diamond sold for | decimal | required
 tax_collected | Tax collected on diamond | decimal | optional
 tax_rate | Sales tax rate pct of where sale occurred (ex 0.0125) | decimal | optional
 quantity | Quantity sold | integer | required
+
+## GET /api/v1/ordres
+
+### HTTP Request
+
+`GET https://dfoundry-diamonds.herokuapp.com/api/v1/orders`
+
+> Must include JWT-token eg: ```Authorization: Bearer erwevcfwegfwegrweg``` in request headers.
+
+> Response JSON is structured like this: 
+
+```json
+[
+  {
+    "created_by_id": "252e5207-3a31-4995-b5c3-20fb31bc9805",
+    "erp_id": null,
+    "id": "fb074590-41de-461b-bc10-fbb2a35cb652",
+    "order_items": [
+      {
+        "diamond_id": "c41a93db-2b6a-4ffe-95e0-fa24b0d3f3d6",
+        "price_extended": "2841.0",
+        "quantity": 1,
+        "sold_price": "500.45",
+        "tax_collected": "36.28",
+        "tax_rate": "0.0725"
+      }
+    ],
+    "payment_method": "manual",
+    "shipping_address": {
+      "attention": null,
+      "city": "Santa Monica",
+      "country": "United States",
+      "line_2": null,
+      "line_3": null,
+      "phone": null,
+      "state": "CA",
+      "street_address": "2512 Michigan Ave",
+      "zip": null
+    },
+    "source_order_id": 781449461862
+  },
+  {
+    "created_by_id": "252e5207-3a31-4995-b5c3-20fb31bc9805",
+    "erp_id": null,
+    "id": "8bbef1ef-cda0-481d-b10d-5d3fef48e062",
+    "order_items": [
+      {
+        "diamond_id": "c41a93db-2b6a-4ffe-95e0-fa24b0d3f3d6",
+        "price_extended": "2841.0",
+        "quantity": 1,
+        "sold_price": "500.45",
+        "tax_collected": "36.28",
+        "tax_rate": "0.0725"
+      }
+    ],
+    "payment_method": "net30",
+    "shipping_address": {
+      "attention": null,
+      "city": "Los Angeles",
+      "country": "United States",
+      "line_2": null,
+      "line_3": null,
+      "phone": null,
+      "state": "California",
+      "street_address": "731 S Spring St",
+      "zip": null
+    },
+    "source_order_id": 781449461863
+  }
+]
+```
+
+## GET Specific Order
+
+## /api/v1/orders/{id}
+
+### HTTP Request
+
+`GET https://dfoundry-diamonds.herokuapp.com/api/v1/orders/fb074590-41de-461b-bc10-fbb2a35cb652`
+
+> Again must include JWT-token in request headers ex: ```Authorization: Bearer erwevcfwegfwegrweg```.
+
+```json
+{
+  "created_by_id": "252e5207-3a31-4995-b5c3-20fb31bc9805",
+  "erp_id": null,
+  "id": "fb074590-41de-461b-bc10-fbb2a35cb652",
+  "order_items": [
+    {
+      "diamond_id": "c41a93db-2b6a-4ffe-95e0-fa24b0d3f3d6",
+      "price_extended": "2841.0",
+      "quantity": 1,
+      "sold_price": "500.45",
+      "tax_collected": "36.28",
+      "tax_rate": "0.0725"
+    }
+  ],
+  "payment_method": "manual",
+  "shipping_address": {
+    "attention": null,
+    "city": "Santa Monica",
+    "country": "United States",
+    "line_2": null,
+    "line_3": null,
+    "phone": null,
+    "state": "CA",
+    "street_address": "2512 Michian Ave",
+    "zip": null
+  },
+  "source_order_id": 781449461862
+}
+```
