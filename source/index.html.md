@@ -256,7 +256,7 @@ tax_collected | Tax collected on diamond | decimal | optional
 tax_rate | Sales tax rate pct of where sale occurred (ex 0.0125) | decimal | optional
 quantity | Quantity sold | integer | required
 
-## GET /api/v1/ordres
+## GET /api/v1/orders
 
 ### HTTP Request
 
