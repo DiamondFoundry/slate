@@ -135,6 +135,221 @@ This endpoint retrieves all purchasable diamonds (available in US) with carat we
 curl 'https://dfoundry-diamonds.herokuapp.com/api/v1/diamonds'
 ```
 
+## /api/v1/diamonds query string params
+/api/v1/diamonds takes optional query string params in array form for attributes 'shape', 'color', 'cut_grade', and 'clarity'. /api/v1/diamonds also takes 'extended' query string param which optionally nests digital assets within the diamond (for those diamonds that have digital assets associated to it):
+
+### HTTP Request w/ query string params (without extended)
+`GET https://dfoundry-diamonds.herokuapp.com/api/v1/diamonds?shape[]=oval&shape[]=pear&color[]=d&color[]=f&color[]=g&color[]=h`
+
+```json
+[
+  {
+    "carat": 1.55,
+    "clarity": "VS1",
+    "color": "H",
+    "crown_angle": 35.8,
+    "crown_height": 13.9,
+    "cut_grade": "Ideal",
+    "depth_mm": 3.88,
+    "depth_pct": 59.1,
+    "fluorescence": "None",
+    "gcal_cert_id": 280850143,
+    "girdle": "Slightly Thick",
+    "id": "f1bd82a3-5ff3-47fb-9955-5ebef91fe3b9",
+    "length_mm": 9.03,
+    "lot_id": 130867,
+    "netsuite_id": 17791,
+    "ns_location": "Los Angeles",
+    "pavilion_angle": 38.8,
+    "pavilion_height": 40.1,
+    "polish": "Excellent",
+    "quantity": 1,
+    "shape": "Oval",
+    "symmetry": "Excellent",
+    "table_size": 60.3,
+    "unit_price_msrp_usd": "6456.0"
+  },
+  {
+    "carat": 2.09,
+    "clarity": "VS1",
+    "color": "H",
+    "crown_angle": 35.2,
+    "crown_height": 13.4,
+    "cut_grade": "Excellent",
+    "depth_mm": 4.28,
+    "depth_pct": 58.4,
+    "fluorescence": "None",
+    "gcal_cert_id": 290020100,
+    "girdle": "Thin to Slightly Thick",
+    "id": "c48cf772-919f-4eff-a00f-70b2eaa7861a",
+    "length_mm": 10.24,
+    "lot_id": 200693,
+    "netsuite_id": 107689,
+    "ns_location": "Los Angeles",
+    "pavilion_angle": 38.5,
+    "pavilion_height": 41.1,
+    "polish": "Very Good",
+    "quantity": 1,
+    "shape": "Oval",
+    "symmetry": "Very Good",
+    "table_size": 59.0,
+    "unit_price_msrp_usd": "11704.0"
+  },
+  {
+    "carat": 2.09,
+    "clarity": "SI1",
+    "color": "G",
+    "crown_angle": 36.1,
+    "crown_height": 13.6,
+    "cut_grade": "Excellent",
+    "depth_mm": 4.32,
+    "depth_pct": 58.9,
+    "fluorescence": "None",
+    "gcal_cert_id": 290020101,
+    "girdle": "Thin to Slightly Thick",
+    "id": "2dc38b85-21c7-49c5-b441-6a48f194deae",
+    "length_mm": 10.09,
+    "lot_id": 193226,
+    "netsuite_id": 107682,
+    "ns_location": "Los Angeles",
+    "pavilion_angle": 38.5,
+    "pavilion_height": 41.0,
+    "polish": "Very Good",
+    "quantity": 1,
+    "shape": "Oval",
+    "symmetry": "Very Good",
+    "table_size": 59.0,
+    "unit_price_msrp_usd": "10450.0"
+  },
+  {
+    "carat": 1.57,
+    "clarity": "VS2",
+    "color": "H",
+    "crown_angle": 35.9,
+    "crown_height": 13.4,
+    "cut_grade": "Excellent",
+    "depth_mm": 3.95,
+    "depth_pct": 59.3,
+    "fluorescence": "None",
+    "gcal_cert_id": 290020090,
+    "girdle": "Medium to Thick",
+    "id": "6e217948-ea45-4671-ac87-92f6b2d11482",
+    "length_mm": 9.26,
+    "lot_id": 201461,
+    "netsuite_id": 107692,
+    "ns_location": "Los Angeles",
+    "pavilion_angle": 38.7,
+    "pavilion_height": 41.4,
+    "polish": "Very Good",
+    "quantity": 1,
+    "shape": "Oval",
+    "symmetry": "Very Good",
+    "table_size": 59.0,
+    "unit_price_msrp_usd": "6272.0"
+  }
+]
+```
+
+## /api/v1/diamonds with 'extended' query string param
+
+### HTTP Request w/ query string params (with 'extended')
+
+```json
+[
+  {
+    "carat": 1.55,
+    "clarity": "VS1",
+    "color": "H",
+    "crown_angle": 35.8,
+    "crown_height": 13.9,
+    "cut_grade": "Ideal",
+    "depth_mm": 3.88,
+    "depth_pct": 59.1,
+    "digital_assets": [],
+    "fluorescence": "None",
+    "gcal_cert_id": 280850143,
+    "girdle": "Slightly Thick",
+    "id": "f1bd82a3-5ff3-47fb-9955-5ebef91fe3b9",
+    "length_mm": 9.03,
+    "lot_id": 130867,
+    "netsuite_id": 17791,
+    "ns_location": "Los Angeles",
+    "pavilion_angle": 38.8,
+    "pavilion_height": 40.1,
+    "polish": "Excellent",
+    "quantity": 1,
+    "shape": "Oval",
+    "symmetry": "Excellent",
+    "table_size": 60.3,
+    "unit_price_msrp_usd": "6456.0"
+  },
+  {
+    "carat": 2.09,
+    "clarity": "VS1",
+    "color": "H",
+    "crown_angle": 35.2,
+    "crown_height": 13.4,
+    "cut_grade": "Excellent",
+    "depth_mm": 4.28,
+    "depth_pct": 58.4,
+    "digital_assets": [
+      {
+        "kind": "video",
+        "url": "https://s3.amazonaws.com/videos.diamondfoundry.com/200693.mp4"
+      }
+    ],
+    "fluorescence": "None",
+    "gcal_cert_id": 290020100,
+    "girdle": "Thin to Slightly Thick",
+    "id": "c48cf772-919f-4eff-a00f-70b2eaa7861a",
+    "length_mm": 10.24,
+    "lot_id": 200693,
+    "netsuite_id": 107689,
+    "ns_location": "Los Angeles",
+    "pavilion_angle": 38.5,
+    "pavilion_height": 41.1,
+    "polish": "Very Good",
+    "quantity": 1,
+    "shape": "Oval",
+    "symmetry": "Very Good",
+    "table_size": 59.0,
+    "unit_price_msrp_usd": "11704.0"
+  },
+  {
+    "carat": 2.09,
+    "clarity": "SI1",
+    "color": "G",
+    "crown_angle": 36.1,
+    "crown_height": 13.6,
+    "cut_grade": "Excellent",
+    "depth_mm": 4.32,
+    "depth_pct": 58.9,
+    "digital_assets": [
+      {
+        "kind": "video",
+        "url": "https://s3.amazonaws.com/videos.diamondfoundry.com/193226.mp4"
+      }
+    ],
+    "fluorescence": "None",
+    "gcal_cert_id": 290020101,
+    "girdle": "Thin to Slightly Thick",
+    "id": "2dc38b85-21c7-49c5-b441-6a48f194deae",
+    "length_mm": 10.09,
+    "lot_id": 193226,
+    "netsuite_id": 107682,
+    "ns_location": "Los Angeles",
+    "pavilion_angle": 38.5,
+    "pavilion_height": 41.0,
+    "polish": "Very Good",
+    "quantity": 1,
+    "shape": "Oval",
+    "symmetry": "Very Good",
+    "table_size": 59.0,
+    "unit_price_msrp_usd": "10450.0"
+  }
+]
+```
+
 ## /api/v1/diamonds/{lot_id}
 
 ### HTTP Request
