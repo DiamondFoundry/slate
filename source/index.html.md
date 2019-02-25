@@ -499,7 +499,7 @@ This endpoint retrieves a specific diamond.
 Parameter | Description | Type | Required
 --------- | ----------- | ---- | --------
 source_order_id | The order ID on the platform where the order was placed | int | required
-payment_method | Method used to pay for order | string | required
+payment_method | Method used to pay for order | string | optional
 metadata | Additional metadata about the order | jsonb | optional
 
 ## Nested shipping_address_attributes
