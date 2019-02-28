@@ -42,7 +42,7 @@ curl -H "Content-Type: application/json" \
   --request POST \
   --data '{"email":"youremail@example.com","password":"password"}' \
   -k \
-  https://dfoundry-diamonds.herokaupp.com/login
+  https://rest.diamondfoundry.com/login
 ```
 
 > Request body:
@@ -70,7 +70,7 @@ This endpoint retrieves all purchasable diamonds (available in US) with carat we
 
 ### HTTP Request
 
-`GET https://dfoundry-diamonds.herokuapp.com/api/v1/diamonds`
+`GET https://rest.diamondfoundry.com/api/v1/diamonds`
 
 > Response body is structured like this:
 
@@ -196,14 +196,14 @@ This endpoint retrieves all purchasable diamonds (available in US) with carat we
 ```
 
 ```shell
-curl 'https://dfoundry-diamonds.herokuapp.com/api/v1/diamonds'
+curl 'https://rest.diamondfoundry.com/api/v1/diamonds'
 ```
 
 ## /api/v1/diamonds query string params
 /api/v1/diamonds takes optional query string params in array form for attributes 'shape', 'color', 'cut_grade', and 'clarity'. /api/v1/diamonds also takes 'extended' query string param which optionally nests digital assets within the diamond (for those diamonds that have digital assets associated to it):
 
 ### HTTP Request w/ query string params (without extended)
-`GET https://dfoundry-diamonds.herokuapp.com/api/v1/diamonds?shape[]=oval&shape[]=pear&color[]=d&color[]=f&color[]=g&color[]=h`
+`GET https://rest.diamondfoundry.com/api/v1/diamonds?shape[]=oval&shape[]=pear&color[]=d&color[]=f&color[]=g&color[]=h`
 
 ```json
 [
@@ -404,7 +404,7 @@ curl 'https://dfoundry-diamonds.herokuapp.com/api/v1/diamonds'
 
 ### HTTP Request
 
-`GET https://dfoundry-diamonds.herokuapp.com/api/v1/diamonds/{lot_id}`
+`GET https://rest.diamondfoundry.com/api/v1/diamonds/{lot_id}`
 
 ### URL Parameters
 
@@ -448,7 +448,7 @@ lot_id | The lot_id of the diamond to retrieve
 ```
 
 ```shell
-curl 'https://dfoundry-diamonds.herokuapp.com/api/v1/diamonds/122049'
+curl 'https://rest.diamondfoundry.com/api/v1/diamonds/122049'
 ```
 
 This endpoint retrieves a specific diamond.
@@ -462,7 +462,7 @@ This endpoint retrieves a specific diamond.
 
 ### HTTP Request
 
-`POST https://dfoundry-diamonds.herokuapp.com/api/v1/orders`
+`POST https://rest.diamondfoundry.com/api/v1/orders`
 
 ### Request body 
 
@@ -529,7 +529,7 @@ quantity | Quantity sold | integer | required
 
 ### HTTP Request
 
-`GET https://dfoundry-diamonds.herokuapp.com/api/v1/orders`
+`GET https://rest.diamondfoundry.com/api/v1/orders`
 
 > Must include JWT-token eg: ```Authorization: Bearer erwevcfwegfwegrweg``` in request headers.
 
@@ -602,7 +602,7 @@ quantity | Quantity sold | integer | required
 
 ### HTTP Request
 
-`GET https://dfoundry-diamonds.herokuapp.com/api/v1/orders/fb074590-41de-461b-bc10-fbb2a35cb652`
+`GET https://rest.diamondfoundry.com/api/v1/orders/fb074590-41de-461b-bc10-fbb2a35cb652`
 
 > Again must include JWT-token in request headers ex: ```Authorization: Bearer erwevcfwegfwegrweg```.
 
@@ -630,7 +630,7 @@ quantity | Quantity sold | integer | required
     "line_3": null,
     "phone": null,
     "state": "CA",
-    "street_address": "2512 Michian Ave",
+    "street_address": "2512 Michigan Ave",
     "zip": null
   },
   "source_order_id": 781449461862
