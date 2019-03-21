@@ -636,3 +636,106 @@ quantity | Quantity sold | integer | required
   "source_order_id": 781449461862
 }
 ```
+
+# User Registration
+
+## Create User
+
+### POST /api/v1/register
+
+`POST https://rest.diamondfoundry.com/api/v1/register`
+
+### Request body 
+
+> Request body must be structured like this: 
+
+```json
+{
+  "user": {
+		"email": "herbie@example.com",
+		"first_name": "Herbie",
+		"last_name": "Hancock",
+		"phone": "9782235621",
+		"company_name": "Jazz Co.",
+		"password": "4gX2Tq&zFBxYVh"
+	}
+}
+```
+
+## User Create Parameters
+
+Parameter | Description | Type | Required
+--------- | ----------- | ---- | --------
+email | your email address | string | required
+first_name | your first name | string | optional
+last_name | your last name | string | optional
+company_name | your businesses name | string | optional
+phone | number you can be reached at | string | optional
+
+## Update User
+
+### PUT/PATCH /api/v1/register
+
+`PUT https://rest.diamondfoundry.com/api/v1/register`
+
+### Request body 
+
+Please note valid Authorization header with JWT Token is required.
+
+current_password parameter is also required to update resource.
+
+> Request body must be structured like this: 
+
+```json
+{
+  "user": {
+		"email": "herbie@example.com",
+		"first_name": "Herbie",
+		"last_name": "Hancock JR",
+		"phone": "9782235621",
+		"company_name": "Herbie Jazz Inc.",
+		"current_password": "4gX2Tq&zFBxYVh"
+	}
+}
+```
+Parameter | Description | Type | Required
+--------- | ----------- | ---- | --------
+current_password | your current password | string | required 
+
+### Response body
+
+> Response JSON is structured like this: 
+
+```json
+{
+  "company_name": "Herbie Jazz Inc.",
+  "email": "herbie@example.com",
+  "first_name": "Herbie",
+  "last_name": "Hancock JR",
+  "phone": "9782235621",
+  "status": null
+}
+```
+
+## Get User
+
+### GET /api/v1/user
+
+`GET https://rest.diamondfoundry.com/api/v1/user`
+
+Please note valid Authorization header with JWT Token is required.
+
+### Response body 
+
+> Response JSON is structured like this: 
+
+```json
+{
+  "company_name": "Herbie Jazz Inc.",
+  "email": "herbie@example.com",
+  "first_name": "Herbie",
+  "last_name": "Hancock JR",
+  "phone": "9782235621",
+  "status": null
+}
+```
