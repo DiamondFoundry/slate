@@ -671,6 +671,7 @@ first_name | your first name | string | optional
 last_name | your last name | string | optional
 company_name | your businesses name | string | optional
 phone | number you can be reached at | string | optional
+password | minimum length 6 | string | required
 
 ## Update User
 
@@ -698,6 +699,9 @@ current_password parameter is also required to update resource.
 	}
 }
 ```
+
+Include any attributes you want to update
+
 Parameter | Description | Type | Required
 --------- | ----------- | ---- | --------
 current_password | your current password | string | required 
