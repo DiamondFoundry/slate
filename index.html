@@ -1016,6 +1016,12 @@ You must replace <code>meowmeowmeow</code> with your personal jwt-token key.
 <td>string</td>
 <td>optional</td>
 </tr>
+<tr>
+<td>password</td>
+<td>minimum length 6</td>
+<td>string</td>
+<td>required</td>
+</tr>
 </tbody></table>
 <h2 id='update-user'>Update User</h2><h3 id='put-patch-api-v1-register'>PUT/PATCH /api/v1/register</h3>
 <p><code>PUT https://rest.diamondfoundry.com/api/v1/register</code></p>
@@ -1038,6 +1044,8 @@ You must replace <code>meowmeowmeow</code> with your personal jwt-token key.
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<p>Include any attributes you want to update</p>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
