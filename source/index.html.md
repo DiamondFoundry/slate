@@ -1187,7 +1187,7 @@ Please note valid Authorization header with JWT Token is required.
   "prices": [
     {
       "amount_usd": "12705.0",
-      "name": "Rap-67"
+      "name": "MSRP-40%"
     }
   ],
   "quantity": 1,
