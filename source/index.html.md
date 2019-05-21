@@ -24,9 +24,8 @@ You can view code examples in the dark area to the right, and you can switch the
 
 JWT Token authentication is used.
 
-To authenticate and get a token, hit the /login endpoint with your user credentials (email, password):
 
-DF API expects for the JWT token to be included only in requests to Order endpoints:
+DF API expects for the JWT token to be included in requests to Order endpoints and V2 Diamond endpoints:
 
 `Authorization: Bearer meowmeowmeow`
 
@@ -736,5 +735,467 @@ Please note valid Authorization header with JWT Token is required.
   "last_name": "Hancock JR",
   "phone": "9782235621",
   "status": null
+}
+```
+
+# Diamond V2 Endpoints
+
+## /api/v2/diamonds
+
+`GET https://rest.diamondfoundry.com/api/v2/diamonds`
+
+Please note valid Authorization header with JWT Token is required.
+
+### Response body 
+
+> Response JSON is structured like this: 
+
+```json
+[
+  {
+    "carat": 1.65,
+    "clarity": "VS2",
+    "color": "J",
+    "created_at": "2019-05-13T18:29:27.190Z",
+    "crown_angle": 35.3,
+    "crown_height": 13.4,
+    "cut_grade": "Excellent",
+    "depth_mm": 3.77,
+    "depth_pct": 62.4,
+    "digital_assets": [],
+    "fluorescence": "None",
+    "gcal_cert_id": null,
+    "girdle": "Slightly Thick",
+    "id": "64de1a90-3dab-4442-b457-ded4bc387b18",
+    "length_mm": 8.17,
+    "lot_id": 122616,
+    "netsuite_id": 15743,
+    "ns_location": "Los Angeles",
+    "pavilion_angle": 42.0,
+    "pavilion_height": 44.9,
+    "polish": "Excellent",
+    "prices": [
+      {
+        "amount_usd": "2777.0",
+        "name": "MSRP-40%"
+      }
+    ],
+    "quantity": 1,
+    "shape": "Emerald",
+    "symmetry": "Excellent",
+    "table_size": 61.5,
+    "unit_price_msrp_usd": "4628.0",
+    "updated_at": "2019-05-20T18:44:28.384Z",
+    "width_mm": 6.04
+  },
+  {
+    "carat": 1.15,
+    "clarity": "VS1",
+    "color": "I",
+    "created_at": "2019-05-13T18:29:27.211Z",
+    "crown_angle": 34.5,
+    "crown_height": 15.0,
+    "cut_grade": "Ideal",
+    "depth_mm": 4.16,
+    "depth_pct": 61.5,
+    "digital_assets": [],
+    "fluorescence": "None",
+    "gcal_cert_id": null,
+    "girdle": "Medium",
+    "id": "dce507f1-9f43-480e-a5d4-b608aa070db6",
+    "length_mm": 6.78,
+    "lot_id": 122749,
+    "netsuite_id": 15766,
+    "ns_location": "Los Angeles",
+    "pavilion_angle": 40.8,
+    "pavilion_height": 43.0,
+    "polish": "Excellent",
+    "prices": [
+      {
+        "amount_usd": "2111.0",
+        "name": "MSRP-40%"
+      }
+    ],
+    "quantity": 1,
+    "shape": "Brilliant Round",
+    "symmetry": "Excellent",
+    "table_size": 56.0,
+    "unit_price_msrp_usd": "3519.0",
+    "updated_at": "2019-05-20T18:44:28.392Z",
+    "width_mm": 6.74
+  },
+  {
+    "carat": 1.59,
+    "clarity": "SI2",
+    "color": "J",
+    "created_at": "2019-05-13T18:29:27.290Z",
+    "crown_angle": 0.0,
+    "crown_height": 14.9,
+    "cut_grade": "Excellent",
+    "depth_mm": 3.69,
+    "depth_pct": 63.0,
+    "digital_assets": [],
+    "fluorescence": "None",
+    "gcal_cert_id": 280640136,
+    "girdle": "Medium",
+    "id": "c96969f6-bb69-4f8e-851f-8281b195c39f",
+    "length_mm": 8.09,
+    "lot_id": 129033,
+    "netsuite_id": 16377,
+    "ns_location": "Los Angeles",
+    "pavilion_angle": 0.0,
+    "pavilion_height": 45.7,
+    "polish": "Excellent",
+    "prices": [
+      {
+        "amount_usd": "2271.0",
+        "name": "MSRP-40%"
+      }
+    ],
+    "quantity": 1,
+    "shape": "Emerald",
+    "symmetry": "Excellent",
+    "table_size": 60.8,
+    "unit_price_msrp_usd": "3784.0",
+    "updated_at": "2019-05-20T18:44:28.524Z",
+    "width_mm": 5.82
+  },
+  {
+    "carat": 0.96,
+    "clarity": "VS1",
+    "color": "I",
+    "created_at": "2019-05-13T18:29:27.294Z",
+    "crown_angle": 0.0,
+    "crown_height": 14.0,
+    "cut_grade": "Ideal",
+    "depth_mm": 3.1,
+    "depth_pct": 62.4,
+    "digital_assets": [],
+    "fluorescence": "None",
+    "gcal_cert_id": 280640108,
+    "girdle": "Medium",
+    "id": "7cc8b163-4f2c-4feb-9965-33ec5b146b8c",
+    "length_mm": 6.95,
+    "lot_id": 129754,
+    "netsuite_id": 16458,
+    "ns_location": "Los Angeles",
+    "pavilion_angle": 0.0,
+    "pavilion_height": 45.6,
+    "polish": "Excellent",
+    "prices": [
+      {
+        "amount_usd": "1400.0",
+        "name": "MSRP-40%"
+      }
+    ],
+    "quantity": 1,
+    "shape": "Emerald",
+    "symmetry": "Excellent",
+    "table_size": 61.6,
+    "unit_price_msrp_usd": "2333.0",
+    "updated_at": "2019-05-20T18:44:28.530Z",
+    "width_mm": 4.93
+  },
+  {
+    "carat": 1.26,
+    "clarity": "VS2",
+    "color": "K",
+    "created_at": "2019-05-13T18:29:27.343Z",
+    "crown_angle": 32.7,
+    "crown_height": 11.7,
+    "cut_grade": "Ideal",
+    "depth_mm": 2.76,
+    "depth_pct": 44.8,
+    "digital_assets": [],
+    "fluorescence": "None",
+    "gcal_cert_id": null,
+    "girdle": "Very Thick",
+    "id": "330d54a5-da22-46ff-9743-753826e8e126",
+    "length_mm": 8.37,
+    "lot_id": 113522,
+    "netsuite_id": 15111,
+    "ns_location": "Los Angeles",
+    "pavilion_angle": 15.0,
+    "pavilion_height": 26.1,
+    "polish": "Excellent",
+    "prices": [
+      {
+        "amount_usd": "1531.0",
+        "name": "MSRP-40%"
+      }
+    ],
+    "quantity": 1,
+    "shape": "Oval Rose",
+    "symmetry": "Excellent",
+    "table_size": 64.0,
+    "unit_price_msrp_usd": "2552.0",
+    "updated_at": "2019-05-20T18:44:28.594Z",
+    "width_mm": 6.16
+  },
+  {
+    "carat": 1.14,
+    "clarity": "VS1",
+    "color": "I",
+    "created_at": "2019-05-13T18:29:27.325Z",
+    "crown_angle": 34.5,
+    "crown_height": 14.5,
+    "cut_grade": "Ideal",
+    "depth_mm": 4.14,
+    "depth_pct": 61.6,
+    "digital_assets": [],
+    "fluorescence": "None",
+    "gcal_cert_id": 280710031,
+    "girdle": "Medium to Slightly Thick",
+    "id": "a73f6328-f2e2-43ac-ba94-27cf6e9e7fcc",
+    "length_mm": 6.71,
+    "lot_id": 134009,
+    "netsuite_id": 16539,
+    "ns_location": "Los Angeles",
+    "pavilion_angle": 40.8,
+    "pavilion_height": 43.0,
+    "polish": "Excellent",
+    "prices": [
+      {
+        "amount_usd": "2093.0",
+        "name": "MSRP-40%"
+      }
+    ],
+    "quantity": 1,
+    "shape": "Brilliant Round",
+    "symmetry": "Excellent",
+    "table_size": 57.0,
+    "unit_price_msrp_usd": "3488.0",
+    "updated_at": "2019-05-20T18:44:28.572Z",
+    "width_mm": 6.73
+  },
+  {
+    "carat": 1.17,
+    "clarity": "VS1",
+    "color": "I",
+    "created_at": "2019-05-13T18:29:27.467Z",
+    "crown_angle": 34.5,
+    "crown_height": 15.0,
+    "cut_grade": "Ideal",
+    "depth_mm": 4.19,
+    "depth_pct": 61.6,
+    "digital_assets": [],
+    "fluorescence": "None",
+    "gcal_cert_id": 280640044,
+    "girdle": "Thin to Medium",
+    "id": "7157b32a-cdbf-4cca-ad7a-edb8d914e1bc",
+    "length_mm": 6.79,
+    "lot_id": 127633,
+    "netsuite_id": 16234,
+    "ns_location": "Los Angeles",
+    "pavilion_angle": 41.0,
+    "pavilion_height": 43.5,
+    "polish": "Excellent",
+    "prices": [
+      {
+        "amount_usd": "2148.0",
+        "name": "MSRP-40%"
+      }
+    ],
+    "quantity": 1,
+    "shape": "Brilliant Round",
+    "symmetry": "Excellent",
+    "table_size": 56.0,
+    "unit_price_msrp_usd": "3580.0",
+    "updated_at": "2019-05-20T18:44:28.720Z",
+    "width_mm": 6.82
+  },
+  {
+    "carat": 1.18,
+    "clarity": "VS2",
+    "color": "I",
+    "created_at": "2019-05-13T18:29:27.412Z",
+    "crown_angle": 35.0,
+    "crown_height": 15.0,
+    "cut_grade": "Ideal",
+    "depth_mm": 4.21,
+    "depth_pct": 61.9,
+    "digital_assets": [],
+    "fluorescence": "None",
+    "gcal_cert_id": null,
+    "girdle": "Medium to Slightly Thick",
+    "id": "7eea3723-9719-4e8e-8e29-6b35ce68a790",
+    "length_mm": 6.8,
+    "lot_id": 125549,
+    "netsuite_id": 16018,
+    "ns_location": "Los Angeles",
+    "pavilion_angle": 41.0,
+    "pavilion_height": 43.5,
+    "polish": "Excellent",
+    "prices": [
+      {
+        "amount_usd": "2103.0",
+        "name": "MSRP-40%"
+      }
+    ],
+    "quantity": 1,
+    "shape": "Brilliant Round",
+    "symmetry": "Excellent",
+    "table_size": 57.0,
+    "unit_price_msrp_usd": "3505.0",
+    "updated_at": "2019-05-20T18:44:28.669Z",
+    "width_mm": 6.77
+  },
+  {
+    "carat": 1.13,
+    "clarity": "VS2",
+    "color": "I",
+    "created_at": "2019-05-13T18:29:27.563Z",
+    "crown_angle": 34.5,
+    "crown_height": 15.0,
+    "cut_grade": "Ideal",
+    "depth_mm": 4.14,
+    "depth_pct": 61.7,
+    "digital_assets": [],
+    "fluorescence": "None",
+    "gcal_cert_id": 280930024,
+    "girdle": "Medium",
+    "id": "8fcdacc2-df0f-4de9-ae52-bea07644e278",
+    "length_mm": 6.7,
+    "lot_id": 144576,
+    "netsuite_id": 17548,
+    "ns_location": "Los Angeles",
+    "pavilion_angle": 41.0,
+    "pavilion_height": 43.5,
+    "polish": "Excellent",
+    "prices": [
+      {
+        "amount_usd": "2014.0",
+        "name": "MSRP-40%"
+      }
+    ],
+    "quantity": 1,
+    "shape": "Brilliant Round",
+    "symmetry": "Excellent",
+    "table_size": 57.0,
+    "unit_price_msrp_usd": "3356.0",
+    "updated_at": "2019-05-20T18:44:28.819Z",
+    "width_mm": 6.71
+  },
+  {
+    "carat": 1.14,
+    "clarity": "VS1",
+    "color": "J",
+    "created_at": "2019-05-13T18:29:27.569Z",
+    "crown_angle": 34.5,
+    "crown_height": 15.0,
+    "cut_grade": "Ideal",
+    "depth_mm": 4.14,
+    "depth_pct": 61.8,
+    "digital_assets": [],
+    "fluorescence": "None",
+    "gcal_cert_id": 281000175,
+    "girdle": "Medium to Slightly Thick",
+    "id": "e3d591b8-ba9e-419c-b32f-96856d13f942",
+    "length_mm": 6.69,
+    "lot_id": 144704,
+    "netsuite_id": 17550,
+    "ns_location": "Los Angeles",
+    "pavilion_angle": 41.0,
+    "pavilion_height": 43.5,
+    "polish": "Excellent",
+    "prices": [
+      {
+        "amount_usd": "1816.0",
+        "name": "MSRP-40%"
+      }
+    ],
+    "quantity": 1,
+    "shape": "Brilliant Round",
+    "symmetry": "Excellent",
+    "table_size": 57.0,
+    "unit_price_msrp_usd": "3027.0",
+    "updated_at": "2019-05-20T18:44:28.844Z",
+    "width_mm": 6.71
+  },
+  {
+    "carat": 1.14,
+    "clarity": "VS1",
+    "color": "J",
+    "created_at": "2019-05-13T18:29:27.574Z",
+    "crown_angle": 34.0,
+    "crown_height": 14.5,
+    "cut_grade": "Ideal",
+    "depth_mm": 4.12,
+    "depth_pct": 61.1,
+    "digital_assets": [],
+    "fluorescence": "None",
+    "gcal_cert_id": 280850064,
+    "girdle": "Medium to Slightly Thick",
+    "id": "2f189fd8-4393-4d69-a7a1-18a5aff7e8ab",
+    "length_mm": 6.72,
+    "lot_id": 139258,
+    "netsuite_id": 17555,
+    "ns_location": "Los Angeles",
+    "pavilion_angle": 41.0,
+    "pavilion_height": 43.5,
+    "polish": "Excellent",
+    "prices": [
+      {
+        "amount_usd": "1816.0",
+        "name": "MSRP-40%"
+      }
+    ],
+    "quantity": 1,
+    "shape": "Brilliant Round",
+    "symmetry": "Excellent",
+    "table_size": 57.0,
+    "unit_price_msrp_usd": "3027.0",
+    "updated_at": "2019-05-20T18:44:28.852Z",
+    "width_mm": 6.76
+  }
+]
+```
+
+## /api/v2/diamonds/{id}
+
+`GET https://rest.diamondfoundry.com/api/v2/diamonds{id}`
+
+Please note valid Authorization header with JWT Token is required.
+
+### Response body 
+
+> Response JSON is structured like this: 
+
+```json
+{
+  "carat": 3.08,
+  "clarity": "VS2",
+  "color": "J",
+  "created_at": "2019-05-13T18:29:55.960Z",
+  "crown_angle": 35.0,
+  "crown_height": 15.0,
+  "cut_grade": "Excellent",
+  "depth_mm": 5.76,
+  "depth_pct": 61.8,
+  "digital_assets": [],
+  "fluorescence": "None",
+  "gcal_cert_id": 291020104,
+  "girdle": "Medium to Slightly Thick",
+  "id": "b2b03602-aea5-4729-af66-570165afa3e0",
+  "length_mm": 9.31,
+  "lot_id": 209026,
+  "netsuite_id": 121007,
+  "ns_location": "Los Angeles",
+  "pavilion_angle": 40.8,
+  "pavilion_height": 43.0,
+  "polish": "Very Good",
+  "prices": [
+    {
+      "amount_usd": "12705.0",
+      "name": "Rap-67"
+    }
+  ],
+  "quantity": 1,
+  "shape": "Brilliant Round",
+  "symmetry": "Excellent",
+  "table_size": 57.0,
+  "unit_price_msrp_usd": "14438.0",
+  "updated_at": "2019-05-20T18:44:54.679Z",
+  "width_mm": 9.34
 }
 ```
