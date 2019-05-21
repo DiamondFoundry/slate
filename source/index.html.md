@@ -656,7 +656,6 @@ quantity | Quantity sold | integer | required
 		"first_name": "Herbie",
 		"last_name": "Hancock",
 		"phone": "9782235621",
-		"company_name": "Jazz Co.",
 		"password": "4gX2Tq&zFBxYVh"
 	}
 }
@@ -669,7 +668,6 @@ Parameter | Description | Type | Required
 email | your email address | string | required
 first_name | your first name | string | optional
 last_name | your last name | string | optional
-company_name | your businesses name | string | optional
 phone | number you can be reached at | string | optional
 password | minimum length 6 | string | required
 
@@ -694,7 +692,6 @@ current_password parameter is also required to update resource.
 		"first_name": "Herbie",
 		"last_name": "Hancock JR",
 		"phone": "9782235621",
-		"company_name": "Herbie Jazz Inc.",
 		"current_password": "4gX2Tq&zFBxYVh"
 	}
 }
@@ -712,7 +709,6 @@ current_password | your current password | string | required
 
 ```json
 {
-  "company_name": "Herbie Jazz Inc.",
   "email": "herbie@example.com",
   "first_name": "Herbie",
   "last_name": "Hancock JR",
@@ -735,7 +731,6 @@ Please note valid Authorization header with JWT Token is required.
 
 ```json
 {
-  "company_name": "Herbie Jazz Inc.",
   "email": "herbie@example.com",
   "first_name": "Herbie",
   "last_name": "Hancock JR",
