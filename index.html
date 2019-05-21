@@ -291,6 +291,17 @@
               </ul>
           </li>
           <li>
+            <a href="#diamond-v2-endpoints" class="toc-h1 toc-link" data-title="Diamond V2 Endpoints">Diamond V2 Endpoints</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#api-v2-diamonds" class="toc-h2 toc-link" data-title="/api/v2/diamonds">/api/v2/diamonds</a>
+                  </li>
+                  <li>
+                    <a href="#api-v2-diamonds-id" class="toc-h2 toc-link" data-title="/api/v2/diamonds/{id}">/api/v2/diamonds/{id}</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
@@ -308,9 +319,7 @@
 <h1 id='authentication'>Authentication</h1>
 <p>JWT Token authentication is used.</p>
 
-<p>To authenticate and get a token, hit the /login endpoint with your user credentials (email, password):</p>
-
-<p>DF API expects for the JWT token to be included only in requests to Order endpoints:</p>
+<p>DF API expects for the JWT token to be included in requests to Order endpoints and V2 Diamond endpoints:</p>
 
 <p><code>Authorization: Bearer meowmeowmeow</code></p>
 
@@ -1078,6 +1087,456 @@ You must replace <code>meowmeowmeow</code> with your personal jwt-token key.
   </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hancock JR"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9782235621"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='diamond-v2-endpoints'>Diamond V2 Endpoints</h1><h2 id='api-v2-diamonds'>/api/v2/diamonds</h2>
+<p><code>GET https://rest.diamondfoundry.com/api/v2/diamonds</code></p>
+
+<p>Please note valid Authorization header with JWT Token is required.</p>
+<h3 id='response-body-3'>Response body</h3>
+<blockquote>
+<p>Response JSON is structured like this: </p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"carat"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.65</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"clarity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VS2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"J"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-13T18:29:27.190Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"crown_angle"</span><span class="p">:</span><span class="w"> </span><span class="mf">35.3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"crown_height"</span><span class="p">:</span><span class="w"> </span><span class="mf">13.4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cut_grade"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Excellent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"depth_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.77</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"depth_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">62.4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_assets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"fluorescence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"gcal_cert_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"girdle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Slightly Thick"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"64de1a90-3dab-4442-b457-ded4bc387b18"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"length_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.17</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lot_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">122616</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"netsuite_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15743</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ns_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Los Angeles"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pavilion_angle"</span><span class="p">:</span><span class="w"> </span><span class="mf">42.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pavilion_height"</span><span class="p">:</span><span class="w"> </span><span class="mf">44.9</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"polish"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Excellent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"amount_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2777.0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MSRP-40%"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shape"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emerald"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"symmetry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Excellent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"table_size"</span><span class="p">:</span><span class="w"> </span><span class="mf">61.5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"unit_price_msrp_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4628.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-20T18:44:28.384Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"width_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.04</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"carat"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.15</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"clarity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VS1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"I"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-13T18:29:27.211Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"crown_angle"</span><span class="p">:</span><span class="w"> </span><span class="mf">34.5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"crown_height"</span><span class="p">:</span><span class="w"> </span><span class="mf">15.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cut_grade"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ideal"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"depth_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.16</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"depth_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">61.5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_assets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"fluorescence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"gcal_cert_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"girdle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medium"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dce507f1-9f43-480e-a5d4-b608aa070db6"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"length_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.78</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lot_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">122749</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"netsuite_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15766</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ns_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Los Angeles"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pavilion_angle"</span><span class="p">:</span><span class="w"> </span><span class="mf">40.8</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pavilion_height"</span><span class="p">:</span><span class="w"> </span><span class="mf">43.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"polish"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Excellent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"amount_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2111.0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MSRP-40%"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shape"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brilliant Round"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"symmetry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Excellent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"table_size"</span><span class="p">:</span><span class="w"> </span><span class="mf">56.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"unit_price_msrp_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3519.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-20T18:44:28.392Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"width_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.74</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"carat"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.59</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"clarity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SI2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"J"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-13T18:29:27.290Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"crown_angle"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"crown_height"</span><span class="p">:</span><span class="w"> </span><span class="mf">14.9</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cut_grade"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Excellent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"depth_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.69</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"depth_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">63.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_assets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"fluorescence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"gcal_cert_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">280640136</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"girdle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medium"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c96969f6-bb69-4f8e-851f-8281b195c39f"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"length_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.09</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lot_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">129033</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"netsuite_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16377</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ns_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Los Angeles"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pavilion_angle"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pavilion_height"</span><span class="p">:</span><span class="w"> </span><span class="mf">45.7</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"polish"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Excellent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"amount_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2271.0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MSRP-40%"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shape"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emerald"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"symmetry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Excellent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"table_size"</span><span class="p">:</span><span class="w"> </span><span class="mf">60.8</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"unit_price_msrp_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3784.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-20T18:44:28.524Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"width_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.82</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"carat"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.96</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"clarity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VS1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"I"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-13T18:29:27.294Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"crown_angle"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"crown_height"</span><span class="p">:</span><span class="w"> </span><span class="mf">14.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cut_grade"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ideal"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"depth_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"depth_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">62.4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_assets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"fluorescence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"gcal_cert_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">280640108</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"girdle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medium"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7cc8b163-4f2c-4feb-9965-33ec5b146b8c"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"length_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.95</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lot_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">129754</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"netsuite_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16458</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ns_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Los Angeles"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pavilion_angle"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pavilion_height"</span><span class="p">:</span><span class="w"> </span><span class="mf">45.6</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"polish"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Excellent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"amount_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1400.0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MSRP-40%"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shape"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Emerald"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"symmetry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Excellent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"table_size"</span><span class="p">:</span><span class="w"> </span><span class="mf">61.6</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"unit_price_msrp_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2333.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-20T18:44:28.530Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"width_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.93</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"carat"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.26</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"clarity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VS2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"K"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-13T18:29:27.343Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"crown_angle"</span><span class="p">:</span><span class="w"> </span><span class="mf">32.7</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"crown_height"</span><span class="p">:</span><span class="w"> </span><span class="mf">11.7</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cut_grade"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ideal"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"depth_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.76</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"depth_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">44.8</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_assets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"fluorescence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"gcal_cert_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"girdle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Very Thick"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"330d54a5-da22-46ff-9743-753826e8e126"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"length_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.37</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lot_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">113522</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"netsuite_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15111</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ns_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Los Angeles"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pavilion_angle"</span><span class="p">:</span><span class="w"> </span><span class="mf">15.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pavilion_height"</span><span class="p">:</span><span class="w"> </span><span class="mf">26.1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"polish"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Excellent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"amount_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1531.0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MSRP-40%"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shape"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Oval Rose"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"symmetry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Excellent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"table_size"</span><span class="p">:</span><span class="w"> </span><span class="mf">64.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"unit_price_msrp_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2552.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-20T18:44:28.594Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"width_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.16</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"carat"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.14</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"clarity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VS1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"I"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-13T18:29:27.325Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"crown_angle"</span><span class="p">:</span><span class="w"> </span><span class="mf">34.5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"crown_height"</span><span class="p">:</span><span class="w"> </span><span class="mf">14.5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cut_grade"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ideal"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"depth_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.14</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"depth_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">61.6</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_assets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"fluorescence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"gcal_cert_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">280710031</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"girdle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medium to Slightly Thick"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a73f6328-f2e2-43ac-ba94-27cf6e9e7fcc"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"length_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.71</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lot_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">134009</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"netsuite_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16539</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ns_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Los Angeles"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pavilion_angle"</span><span class="p">:</span><span class="w"> </span><span class="mf">40.8</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pavilion_height"</span><span class="p">:</span><span class="w"> </span><span class="mf">43.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"polish"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Excellent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"amount_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2093.0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MSRP-40%"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shape"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brilliant Round"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"symmetry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Excellent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"table_size"</span><span class="p">:</span><span class="w"> </span><span class="mf">57.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"unit_price_msrp_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3488.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-20T18:44:28.572Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"width_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.73</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"carat"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.17</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"clarity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VS1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"I"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-13T18:29:27.467Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"crown_angle"</span><span class="p">:</span><span class="w"> </span><span class="mf">34.5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"crown_height"</span><span class="p">:</span><span class="w"> </span><span class="mf">15.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cut_grade"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ideal"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"depth_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.19</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"depth_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">61.6</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_assets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"fluorescence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"gcal_cert_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">280640044</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"girdle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thin to Medium"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7157b32a-cdbf-4cca-ad7a-edb8d914e1bc"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"length_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.79</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lot_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">127633</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"netsuite_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16234</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ns_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Los Angeles"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pavilion_angle"</span><span class="p">:</span><span class="w"> </span><span class="mf">41.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pavilion_height"</span><span class="p">:</span><span class="w"> </span><span class="mf">43.5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"polish"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Excellent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"amount_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2148.0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MSRP-40%"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shape"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brilliant Round"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"symmetry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Excellent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"table_size"</span><span class="p">:</span><span class="w"> </span><span class="mf">56.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"unit_price_msrp_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3580.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-20T18:44:28.720Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"width_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.82</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"carat"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.18</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"clarity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VS2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"I"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-13T18:29:27.412Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"crown_angle"</span><span class="p">:</span><span class="w"> </span><span class="mf">35.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"crown_height"</span><span class="p">:</span><span class="w"> </span><span class="mf">15.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cut_grade"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ideal"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"depth_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.21</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"depth_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">61.9</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_assets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"fluorescence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"gcal_cert_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"girdle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medium to Slightly Thick"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7eea3723-9719-4e8e-8e29-6b35ce68a790"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"length_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.8</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lot_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">125549</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"netsuite_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16018</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ns_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Los Angeles"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pavilion_angle"</span><span class="p">:</span><span class="w"> </span><span class="mf">41.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pavilion_height"</span><span class="p">:</span><span class="w"> </span><span class="mf">43.5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"polish"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Excellent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"amount_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2103.0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MSRP-40%"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shape"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brilliant Round"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"symmetry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Excellent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"table_size"</span><span class="p">:</span><span class="w"> </span><span class="mf">57.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"unit_price_msrp_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3505.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-20T18:44:28.669Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"width_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.77</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"carat"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.13</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"clarity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VS2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"I"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-13T18:29:27.563Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"crown_angle"</span><span class="p">:</span><span class="w"> </span><span class="mf">34.5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"crown_height"</span><span class="p">:</span><span class="w"> </span><span class="mf">15.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cut_grade"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ideal"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"depth_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.14</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"depth_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">61.7</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_assets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"fluorescence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"gcal_cert_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">280930024</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"girdle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medium"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8fcdacc2-df0f-4de9-ae52-bea07644e278"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"length_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.7</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lot_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">144576</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"netsuite_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17548</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ns_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Los Angeles"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pavilion_angle"</span><span class="p">:</span><span class="w"> </span><span class="mf">41.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pavilion_height"</span><span class="p">:</span><span class="w"> </span><span class="mf">43.5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"polish"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Excellent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"amount_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014.0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MSRP-40%"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shape"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brilliant Round"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"symmetry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Excellent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"table_size"</span><span class="p">:</span><span class="w"> </span><span class="mf">57.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"unit_price_msrp_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3356.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-20T18:44:28.819Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"width_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.71</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"carat"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.14</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"clarity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VS1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"J"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-13T18:29:27.569Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"crown_angle"</span><span class="p">:</span><span class="w"> </span><span class="mf">34.5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"crown_height"</span><span class="p">:</span><span class="w"> </span><span class="mf">15.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cut_grade"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ideal"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"depth_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.14</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"depth_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">61.8</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_assets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"fluorescence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"gcal_cert_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">281000175</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"girdle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medium to Slightly Thick"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e3d591b8-ba9e-419c-b32f-96856d13f942"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"length_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.69</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lot_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">144704</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"netsuite_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17550</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ns_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Los Angeles"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pavilion_angle"</span><span class="p">:</span><span class="w"> </span><span class="mf">41.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pavilion_height"</span><span class="p">:</span><span class="w"> </span><span class="mf">43.5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"polish"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Excellent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"amount_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1816.0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MSRP-40%"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shape"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brilliant Round"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"symmetry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Excellent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"table_size"</span><span class="p">:</span><span class="w"> </span><span class="mf">57.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"unit_price_msrp_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3027.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-20T18:44:28.844Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"width_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.71</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"carat"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.14</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"clarity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VS1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"J"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-13T18:29:27.574Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"crown_angle"</span><span class="p">:</span><span class="w"> </span><span class="mf">34.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"crown_height"</span><span class="p">:</span><span class="w"> </span><span class="mf">14.5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cut_grade"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ideal"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"depth_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.12</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"depth_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">61.1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"digital_assets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"fluorescence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"gcal_cert_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">280850064</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"girdle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medium to Slightly Thick"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2f189fd8-4393-4d69-a7a1-18a5aff7e8ab"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"length_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.72</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"lot_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">139258</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"netsuite_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17555</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ns_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Los Angeles"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pavilion_angle"</span><span class="p">:</span><span class="w"> </span><span class="mf">41.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"pavilion_height"</span><span class="p">:</span><span class="w"> </span><span class="mf">43.5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"polish"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Excellent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"amount_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1816.0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MSRP-40%"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"shape"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brilliant Round"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"symmetry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Excellent"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"table_size"</span><span class="p">:</span><span class="w"> </span><span class="mf">57.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"unit_price_msrp_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3027.0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-20T18:44:28.852Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"width_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.76</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h2 id='api-v2-diamonds-id'>/api/v2/diamonds/{id}</h2>
+<p><code>GET https://rest.diamondfoundry.com/api/v2/diamonds{id}</code></p>
+
+<p>Please note valid Authorization header with JWT Token is required.</p>
+<h3 id='response-body-4'>Response body</h3>
+<blockquote>
+<p>Response JSON is structured like this: </p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"carat"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.08</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"clarity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VS2"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"J"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-13T18:29:55.960Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"crown_angle"</span><span class="p">:</span><span class="w"> </span><span class="mf">35.0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"crown_height"</span><span class="p">:</span><span class="w"> </span><span class="mf">15.0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cut_grade"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Excellent"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"depth_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.76</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"depth_pct"</span><span class="p">:</span><span class="w"> </span><span class="mf">61.8</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"digital_assets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"fluorescence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"gcal_cert_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">291020104</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"girdle"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medium to Slightly Thick"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b2b03602-aea5-4729-af66-570165afa3e0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"length_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.31</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"lot_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">209026</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"netsuite_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">121007</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ns_location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Los Angeles"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"pavilion_angle"</span><span class="p">:</span><span class="w"> </span><span class="mf">40.8</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"pavilion_height"</span><span class="p">:</span><span class="w"> </span><span class="mf">43.0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"polish"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Very Good"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"prices"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"amount_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12705.0"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rap-67"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"shape"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Brilliant Round"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"symmetry"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Excellent"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"table_size"</span><span class="p">:</span><span class="w"> </span><span class="mf">57.0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"unit_price_msrp_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14438.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-20T18:44:54.679Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"width_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.34</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h1 id='errors'>Errors</h1>
 <aside class="notice">
