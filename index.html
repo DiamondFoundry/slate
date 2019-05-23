@@ -302,6 +302,17 @@
               </ul>
           </li>
           <li>
+            <a href="#order-v2-endpoints" class="toc-h1 toc-link" data-title="Order V2 Endpoints">Order V2 Endpoints</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#api-v2-orders" class="toc-h2 toc-link" data-title="/api/v2/orders">/api/v2/orders</a>
+                  </li>
+                  <li>
+                    <a href="#api-v2-orders-id" class="toc-h2 toc-link" data-title="/api/v2/orders/{id}">/api/v2/orders/{id}</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
@@ -1495,7 +1506,7 @@ You must replace <code>meowmeowmeow</code> with your personal jwt-token key.
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre><h2 id='api-v2-diamonds-id'>/api/v2/diamonds/{id}</h2>
-<p><code>GET https://rest.diamondfoundry.com/api/v2/diamonds{id}</code></p>
+<p><code>GET https://rest.diamondfoundry.com/api/v2/diamonds/{id}</code></p>
 
 <p>Please note valid Authorization header with JWT Token is required.</p>
 <h3 id='response-body-4'>Response body</h3>
@@ -1537,6 +1548,180 @@ You must replace <code>meowmeowmeow</code> with your personal jwt-token key.
   </span><span class="s2">"unit_price_msrp_usd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14438.0"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-20T18:44:54.679Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"width_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.34</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='order-v2-endpoints'>Order V2 Endpoints</h1>
+<p>Please note valid Authorization header with JWT Token is required.</p>
+<h2 id='api-v2-orders'>/api/v2/orders</h2>
+<p><code>GET https://rest.diamondfoundry.com/api/v2/orders</code></p>
+
+<p>Please note valid Authorization header with JWT Token is required.</p>
+<h3 id='response-body-5'>Response body</h3><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-22T20:37:52.567Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"customer_account_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ba35e062-f616-424a-aa20-4700051ded68"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"erp_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dd4d6dfb-45e3-46bf-bfec-108f2eb6d328"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"order_items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"diamond"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"carat"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"clarity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VVS2"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"D"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"cut_grade"</span><span class="p">:</span><span class="w"> </span><span class="s2">"excellent"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e273afa9-3d73-48e3-8d24-c27b351bd1f5"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"lot_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">60315318040</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"shape"</span><span class="p">:</span><span class="w"> </span><span class="s2">"oval"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ca46aa8d-405b-4bf0-9b2e-53cca70d8272"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price_extended"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5694.0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sold_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500.43"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tax_collected"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tax_rate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"diamond"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"carat"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"clarity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VVS2"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"cut_grade"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ideal"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"63ae1281-ecbb-4876-8475-4342e3300591"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"lot_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">209713948362</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"shape"</span><span class="p">:</span><span class="w"> </span><span class="s2">"round"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1ecca3e9-2f2e-4e7f-b4ee-e473c9ef3aa9"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price_extended"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14611.0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sold_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500.43"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tax_collected"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tax_rate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"diamond"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"carat"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"clarity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VVS2"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"cut_grade"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ideal"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08a79d54-e982-45b2-b20a-3e64ecbfbee8"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"lot_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">190552663844</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"shape"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pear"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"792a6b8f-9a7a-467f-b134-86616df8fe27"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price_extended"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24619.0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sold_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500.43"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tax_collected"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tax_rate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"shipping_address_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84675fd3-bf18-49ef-9cf7-29d6061de57d"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"source_order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">144745417915</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-22T20:37:52.567Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-23T00:56:14.845Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"customer_account_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ba35e062-f616-424a-aa20-4700051ded68"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"erp_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ccf6b456-8d16-4ad3-bab6-6b70022656fe"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"order_items"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"shipping_address_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"48cc0167-d511-43ae-a231-1fc6e26627f8"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"source_order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">151183608411</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-23T00:56:14.845Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-23T00:56:38.257Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"customer_account_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f352f41e-b296-4b62-8095-7088cc4a4038"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"erp_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d42ecafa-5f49-4763-a5d3-167f828afabe"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"order_items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"diamond"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"carat"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"clarity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VVS2"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"D"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"cut_grade"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ideal"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e81be5e6-ef6f-48d1-bad4-e5107e12b6f8"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"lot_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">45222641498</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"shape"</span><span class="p">:</span><span class="w"> </span><span class="s2">"round"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"151b9049-d28a-457f-840c-02428f81b6ea"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price_extended"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15174.0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sold_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500.43"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tax_collected"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tax_rate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"shipping_address_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b890daf5-d71d-4926-9d6e-77d16b3b0a1f"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"source_order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">773525529</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-23T00:56:38.257Z"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h2 id='api-v2-orders-id'>/api/v2/orders/{id}</h2>
+<p><code>GET https://rest.diamondfoundry.com/api/v2/orders/{id}</code></p>
+
+<p>Please note valid Authorization header with JWT Token is required.</p>
+<h3 id='response-body-6'>Response body</h3><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-22T20:37:52.567Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"customer_account_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ba35e062-f616-424a-aa20-4700051ded68"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"erp_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dd4d6dfb-45e3-46bf-bfec-108f2eb6d328"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"order_items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"diamond"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"carat"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"clarity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VVS2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"D"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cut_grade"</span><span class="p">:</span><span class="w"> </span><span class="s2">"excellent"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e273afa9-3d73-48e3-8d24-c27b351bd1f5"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lot_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">60315318040</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shape"</span><span class="p">:</span><span class="w"> </span><span class="s2">"oval"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ca46aa8d-405b-4bf0-9b2e-53cca70d8272"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price_extended"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5694.0"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sold_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500.43"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"tax_collected"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"tax_rate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"diamond"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"carat"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"clarity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VVS2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cut_grade"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ideal"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"63ae1281-ecbb-4876-8475-4342e3300591"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lot_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">209713948362</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shape"</span><span class="p">:</span><span class="w"> </span><span class="s2">"round"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1ecca3e9-2f2e-4e7f-b4ee-e473c9ef3aa9"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price_extended"</span><span class="p">:</span><span class="w"> </span><span class="s2">"14611.0"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sold_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500.43"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"tax_collected"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"tax_rate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"diamond"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"carat"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"clarity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VVS2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"F"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cut_grade"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ideal"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"08a79d54-e982-45b2-b20a-3e64ecbfbee8"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"lot_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">190552663844</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shape"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pear"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"792a6b8f-9a7a-467f-b134-86616df8fe27"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price_extended"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24619.0"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"sold_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"500.43"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"tax_collected"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"tax_rate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"shipping_address_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84675fd3-bf18-49ef-9cf7-29d6061de57d"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"source_order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">144745417915</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-22T20:37:52.567Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h1 id='errors'>Errors</h1>
 <aside class="notice">
