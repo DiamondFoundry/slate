@@ -1153,7 +1153,7 @@ Please note valid Authorization header with JWT Token is required.
 
 ## /api/v2/diamonds/{id}
 
-`GET https://rest.diamondfoundry.com/api/v2/diamonds{id}`
+`GET https://rest.diamondfoundry.com/api/v2/diamonds/{id}`
 
 Please note valid Authorization header with JWT Token is required.
 
@@ -1197,5 +1197,193 @@ Please note valid Authorization header with JWT Token is required.
   "unit_price_msrp_usd": "14438.0",
   "updated_at": "2019-05-20T18:44:54.679Z",
   "width_mm": 9.34
+}
+```
+
+# Order V2 Endpoints
+
+Please note valid Authorization header with JWT Token is required.
+
+## /api/v2/orders
+`GET https://rest.diamondfoundry.com/api/v2/orders`
+
+Please note valid Authorization header with JWT Token is required.
+
+### Response body 
+
+```json
+[
+  {
+    "created_at": "2019-05-22T20:37:52.567Z",
+    "customer_account_id": "ba35e062-f616-424a-aa20-4700051ded68",
+    "erp_id": null,
+    "id": "dd4d6dfb-45e3-46bf-bfec-108f2eb6d328",
+    "order_items": [
+      {
+        "diamond": {
+          "carat": 3.0,
+          "clarity": "VVS2",
+          "color": "D",
+          "cut_grade": "excellent",
+          "id": "e273afa9-3d73-48e3-8d24-c27b351bd1f5",
+          "lot_id": 60315318040,
+          "shape": "oval"
+        },
+        "id": "ca46aa8d-405b-4bf0-9b2e-53cca70d8272",
+        "price_extended": "5694.0",
+        "quantity": 1,
+        "sold_price": "500.43",
+        "tax_collected": null,
+        "tax_rate": null
+      },
+      {
+        "diamond": {
+          "carat": 3.0,
+          "clarity": "VVS2",
+          "color": "E",
+          "cut_grade": "ideal",
+          "id": "63ae1281-ecbb-4876-8475-4342e3300591",
+          "lot_id": 209713948362,
+          "shape": "round"
+        },
+        "id": "1ecca3e9-2f2e-4e7f-b4ee-e473c9ef3aa9",
+        "price_extended": "14611.0",
+        "quantity": 1,
+        "sold_price": "500.43",
+        "tax_collected": null,
+        "tax_rate": null
+      },
+      {
+        "diamond": {
+          "carat": 1.0,
+          "clarity": "VVS2",
+          "color": "F",
+          "cut_grade": "ideal",
+          "id": "08a79d54-e982-45b2-b20a-3e64ecbfbee8",
+          "lot_id": 190552663844,
+          "shape": "pear"
+        },
+        "id": "792a6b8f-9a7a-467f-b134-86616df8fe27",
+        "price_extended": "24619.0",
+        "quantity": 1,
+        "sold_price": "500.43",
+        "tax_collected": null,
+        "tax_rate": null
+      }
+    ],
+    "shipping_address_id": "84675fd3-bf18-49ef-9cf7-29d6061de57d",
+    "source_order_id": 144745417915,
+    "updated_at": "2019-05-22T20:37:52.567Z"
+  },
+  {
+    "created_at": "2019-05-23T00:56:14.845Z",
+    "customer_account_id": "ba35e062-f616-424a-aa20-4700051ded68",
+    "erp_id": null,
+    "id": "ccf6b456-8d16-4ad3-bab6-6b70022656fe",
+    "order_items": [],
+    "shipping_address_id": "48cc0167-d511-43ae-a231-1fc6e26627f8",
+    "source_order_id": 151183608411,
+    "updated_at": "2019-05-23T00:56:14.845Z"
+  },
+  {
+    "created_at": "2019-05-23T00:56:38.257Z",
+    "customer_account_id": "f352f41e-b296-4b62-8095-7088cc4a4038",
+    "erp_id": null,
+    "id": "d42ecafa-5f49-4763-a5d3-167f828afabe",
+    "order_items": [
+      {
+        "diamond": {
+          "carat": 2.0,
+          "clarity": "VVS2",
+          "color": "D",
+          "cut_grade": "ideal",
+          "id": "e81be5e6-ef6f-48d1-bad4-e5107e12b6f8",
+          "lot_id": 45222641498,
+          "shape": "round"
+        },
+        "id": "151b9049-d28a-457f-840c-02428f81b6ea",
+        "price_extended": "15174.0",
+        "quantity": 1,
+        "sold_price": "500.43",
+        "tax_collected": null,
+        "tax_rate": null
+      }
+    ],
+    "shipping_address_id": "b890daf5-d71d-4926-9d6e-77d16b3b0a1f",
+    "source_order_id": 773525529,
+    "updated_at": "2019-05-23T00:56:38.257Z"
+  }
+]
+```
+
+## /api/v2/orders/{id}
+`GET https://rest.diamondfoundry.com/api/v2/orders/{id}`
+
+Please note valid Authorization header with JWT Token is required.
+
+### Response body
+
+```json
+{
+  "created_at": "2019-05-22T20:37:52.567Z",
+  "customer_account_id": "ba35e062-f616-424a-aa20-4700051ded68",
+  "erp_id": null,
+  "id": "dd4d6dfb-45e3-46bf-bfec-108f2eb6d328",
+  "order_items": [
+    {
+      "diamond": {
+        "carat": 3.0,
+        "clarity": "VVS2",
+        "color": "D",
+        "cut_grade": "excellent",
+        "id": "e273afa9-3d73-48e3-8d24-c27b351bd1f5",
+        "lot_id": 60315318040,
+        "shape": "oval"
+      },
+      "id": "ca46aa8d-405b-4bf0-9b2e-53cca70d8272",
+      "price_extended": "5694.0",
+      "quantity": 1,
+      "sold_price": "500.43",
+      "tax_collected": null,
+      "tax_rate": null
+    },
+    {
+      "diamond": {
+        "carat": 3.0,
+        "clarity": "VVS2",
+        "color": "E",
+        "cut_grade": "ideal",
+        "id": "63ae1281-ecbb-4876-8475-4342e3300591",
+        "lot_id": 209713948362,
+        "shape": "round"
+      },
+      "id": "1ecca3e9-2f2e-4e7f-b4ee-e473c9ef3aa9",
+      "price_extended": "14611.0",
+      "quantity": 1,
+      "sold_price": "500.43",
+      "tax_collected": null,
+      "tax_rate": null
+    },
+    {
+      "diamond": {
+        "carat": 1.0,
+        "clarity": "VVS2",
+        "color": "F",
+        "cut_grade": "ideal",
+        "id": "08a79d54-e982-45b2-b20a-3e64ecbfbee8",
+        "lot_id": 190552663844,
+        "shape": "pear"
+      },
+      "id": "792a6b8f-9a7a-467f-b134-86616df8fe27",
+      "price_extended": "24619.0",
+      "quantity": 1,
+      "sold_price": "500.43",
+      "tax_collected": null,
+      "tax_rate": null
+    }
+  ],
+  "shipping_address_id": "84675fd3-bf18-49ef-9cf7-29d6061de57d",
+  "source_order_id": 144745417915,
+  "updated_at": "2019-05-22T20:37:52.567Z"
 }
 ```
