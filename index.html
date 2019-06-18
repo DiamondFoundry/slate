@@ -313,6 +313,14 @@
               </ul>
           </li>
           <li>
+            <a href="#customeraccount-endpoints" class="toc-h1 toc-link" data-title="CustomerAccount Endpoints">CustomerAccount Endpoints</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-api-v2-customer_account" class="toc-h2 toc-link" data-title="GET /api/v2/customer_account">GET /api/v2/customer_account</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
@@ -1722,6 +1730,33 @@ You must replace <code>meowmeowmeow</code> with your personal jwt-token key.
   </span><span class="s2">"shipping_address_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"84675fd3-bf18-49ef-9cf7-29d6061de57d"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"source_order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">144745417915</span><span class="p">,</span><span class="w">
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-22T20:37:52.567Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='customeraccount-endpoints'>CustomerAccount Endpoints</h1>
+<p>Please note valid Authorization header with JWT Token is required.</p>
+<h2 id='get-api-v2-customer_account'>GET /api/v2/customer_account</h2>
+<p><code>GET https://rest.diamondfoundry.com/api/v2/customer_accounts</code></p>
+
+<p>Please note valid Authorization header with JWT Token is required.</p>
+<h3 id='response-body-7'>Response body</h3><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"attention"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Twin Peaks"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USA"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e1bd3ef1-ce25-401c-90df-d5a2bcbcab1b"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"line_2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"line_3"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dr. Elizabet Labadie"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"California"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"street_address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2505 Oberbrunner Overpass"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"92391-3868"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"company_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example Co"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2b91ac1a-8454-45ef-abea-8aae7beebe95"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ns_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Purchasing"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"(900)999-9999"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h1 id='errors'>Errors</h1>
 <aside class="notice">
