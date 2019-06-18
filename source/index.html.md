@@ -1387,3 +1387,37 @@ Please note valid Authorization header with JWT Token is required.
   "updated_at": "2019-05-22T20:37:52.567Z"
 }
 ```
+
+# CustomerAccount Endpoints
+
+Please note valid Authorization header with JWT Token is required.
+
+## GET /api/v2/customer_account
+`GET https://rest.diamondfoundry.com/api/v2/customer_accounts`
+
+Please note valid Authorization header with JWT Token is required.
+
+### Response body
+```json
+{
+  "addresses": [
+    {
+      "attention": null,
+      "city": "Twin Peaks",
+      "country": "USA",
+      "id": "e1bd3ef1-ce25-401c-90df-d5a2bcbcab1b",
+      "line_2": null,
+      "line_3": null,
+      "name": "Dr. Elizabet Labadie",
+      "phone": null,
+      "state": "California",
+      "street_address": "2505 Oberbrunner Overpass",
+      "zip": "92391-3868"
+    }
+  ],
+  "company_name": "Example Co",
+  "id": "2b91ac1a-8454-45ef-abea-8aae7beebe95",
+  "ns_status": "Purchasing",
+  "phone": "(900)999-9999"
+}
+```
