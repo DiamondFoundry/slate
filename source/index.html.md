@@ -1393,7 +1393,7 @@ Please note valid Authorization header with JWT Token is required.
 Please note valid Authorization header with JWT Token is required.
 
 ## GET /api/v2/customer_account
-`GET https://rest.diamondfoundry.com/api/v2/customer_accounts`
+`GET https://rest.diamondfoundry.com/api/v2/customer_account`
 
 Please note valid Authorization header with JWT Token is required.
 
