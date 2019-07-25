@@ -738,6 +738,46 @@ Please note valid Authorization header with JWT Token is required.
 }
 ```
 
+# Reset User Password
+
+## Request Password Reset Email
+### POST /api/v1/users/password
+
+`POST https://rest.diamondfoundry.com/api/v1/users/password`
+
+Sends User Password Reset email
+
+> Request body must be structured like this: 
+
+```json
+{
+	"user": {
+		"email": "herbie.hancock@example.com"
+	}
+}
+```
+
+> Response will be empty body with status code 202 for successful requests
+
+## Reset: Set new password
+### PUT/PATCH /api/v1/users/password
+
+`PATCH https://rest.diamondfoundry.com/api/v1/users/password`
+
+> Request body must be structured like this note* inclusion of reset_password_token which is query param in url sent via email: 
+
+```json
+{
+	"user": {
+		"email": "herbie.hancock@example.com",
+		"password": "my_new_password",
+		"reset_password_token": "R63tfseV1eBB7x-zyAG5"
+	}
+}
+```
+
+> Response will be empty body with status code 200 for successful requests
+
 # Diamond V2 Endpoints
 
 ## /api/v2/diamonds
