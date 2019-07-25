@@ -291,6 +291,17 @@
               </ul>
           </li>
           <li>
+            <a href="#reset-user-password" class="toc-h1 toc-link" data-title="Reset User Password">Reset User Password</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#request-password-reset-email" class="toc-h2 toc-link" data-title="Request Password Reset Email">Request Password Reset Email</a>
+                  </li>
+                  <li>
+                    <a href="#reset-set-new-password" class="toc-h2 toc-link" data-title="Reset: Set new password">Reset: Set new password</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#diamond-v2-endpoints" class="toc-h1 toc-link" data-title="Diamond V2 Endpoints">Diamond V2 Endpoints</a>
               <ul class="toc-list-h2">
                   <li>
@@ -1107,7 +1118,41 @@ You must replace <code>meowmeowmeow</code> with your personal jwt-token key.
   </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9782235621"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h1 id='diamond-v2-endpoints'>Diamond V2 Endpoints</h1><h2 id='api-v2-diamonds'>/api/v2/diamonds</h2>
+</span></code></pre><h1 id='reset-user-password'>Reset User Password</h1><h2 id='request-password-reset-email'>Request Password Reset Email</h2><h3 id='post-api-v1-users-password'>POST /api/v1/users/password</h3>
+<p><code>POST https://rest.diamondfoundry.com/api/v1/users/password</code></p>
+
+<p>Sends User Password Reset email</p>
+
+<blockquote>
+<p>Request body must be structured like this: </p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"herbie.hancock@example.com"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Response will be empty body with status code 202 for successful requests</p>
+</blockquote>
+<h2 id='reset-set-new-password'>Reset: Set new password</h2><h3 id='put-patch-api-v1-users-password'>PUT/PATCH /api/v1/users/password</h3>
+<p><code>PATCH https://rest.diamondfoundry.com/api/v1/users/password</code></p>
+
+<blockquote>
+<p>Request body must be structured like this note* inclusion of reset_password_token which is query param in url sent via email: </p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"herbie.hancock@example.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my_new_password"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"reset_password_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"R63tfseV1eBB7x-zyAG5"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Response will be empty body with status code 200 for successful requests</p>
+</blockquote>
+<h1 id='diamond-v2-endpoints'>Diamond V2 Endpoints</h1><h2 id='api-v2-diamonds'>/api/v2/diamonds</h2>
 <p><code>GET https://rest.diamondfoundry.com/api/v2/diamonds</code></p>
 
 <p>Please note valid Authorization header with JWT Token is required.</p>
