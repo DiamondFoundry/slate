@@ -24,7 +24,6 @@ You can view code examples in the dark area to the right, and you can switch the
 
 JWT Token authentication is used.
 
-
 DF API expects for the JWT token to be included in requests to Order endpoints and V2 Diamond endpoints:
 
 `Authorization: Bearer meowmeowmeow`
@@ -61,11 +60,33 @@ curl -H "Content-Type: application/json" \
 }
 ```
 
-# Diamond Endpoints
+# v1 diamond endpoints
 
 ## /api/v1/diamonds
 
-This endpoint retrieves all purchasable diamonds (available in US) with carat weight above 0.84.
+This endpoint retrieves all purchasable diamonds (available in US) with carat weight above 0.84. 
+
+Differences between this endpoint and /api/v2/diamonds: 
+
+1. /api/v2/diamonds requires JWT Token
+2. /api/v1/diamonds includes only diamonds above 0.84 carats
+3. /api/v1/diamonds includes MSRP pricing only.
+4. /api/v1/diamonds allows query params to scope the response type. Please see more info and details listed below for each query param.
+
+For account specific pricing you must authenticate and use v2 diamonds.
+
+**Certificates**
+
+Diamond Foundry has a pdf certificate accessible for diamonds. In order to access it use the following path and interpolate the `lot_id` of the diamond: 
+`https://certificate.diamondfoundry.com/download/${lot_id}.pdf` 
+
+example: `https://certificate.diamondfoundry.com/download/169610.pdf`
+
+169610 is the lot id.
+
+**Videos**
+
+Links to videos are optionally accessible (using query string param 'extended' in v1 diamonds) and automatically included v2 diamond endpoints. For videos, the `url` key is a link to the mp3 file. See more info below.
 
 ### HTTP Request
 
@@ -201,6 +222,12 @@ curl 'https://rest.diamondfoundry.com/api/v1/diamonds'
 ## /api/v1/diamonds query string params
 /api/v1/diamonds takes optional query string params in array form for attributes 'shape', 'color', 'cut_grade', and 'clarity'. /api/v1/diamonds also takes 'extended' query string param which optionally nests digital assets within the diamond (for those diamonds that have digital assets associated to it):
 
+* Please note; to include digital assets (eg links to video files) you must include the `extended` query param. See how to do that below.
+
+Also, please note that the url is a link to a video.
+
+See the difference in response bodies below.
+
 ### HTTP Request w/ query string params (without extended)
 `GET https://rest.diamondfoundry.com/api/v1/diamonds?shape[]=oval&shape[]=pear&color[]=d&color[]=f&color[]=g&color[]=h`
 
@@ -326,6 +353,8 @@ curl 'https://rest.diamondfoundry.com/api/v1/diamonds'
 ```
 
 ## /api/v1/diamonds?extended=t with 'extended' query string param
+
+* Please note that the url is a link to a video.
 
 ### HTTP Request w/ query string params (with 'extended')
 
