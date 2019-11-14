@@ -3,7 +3,6 @@ title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
-  - json
 
 toc_footers:
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
@@ -16,9 +15,7 @@ search: true
 
 # Introduction
 
-Welcome to Diamond Foundry API! You can use our API to access product data, inventory data, and to place orders.
-
-You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+Welcome to Diamond Foundry API! You can use our API to access diamond inventory and place orders.
 
 # Authentication
 
@@ -32,6 +29,8 @@ DF API expects for the JWT token to be included in requests to Order endpoints a
 You must replace <code>meowmeowmeow</code> with your personal jwt-token key.
 </aside>
 
+To obtain a JWT token, you must log in using your username and password.
+
 ## Login /login
 /login authenticates user, response body contains a success message and response headers include authorization token.
 
@@ -43,7 +42,7 @@ curl -H "Content-Type: application/json" \
   https://rest.diamondfoundry.com/login
 ```
 
-> Request body:
+> Request body: 
 
 ```json
 {
@@ -57,6 +56,14 @@ curl -H "Content-Type: application/json" \
 ```json
 {
   "message": "Authentication successful. JWT token included in this response."
+}
+```
+
+> The response headers will include the Authorization header.
+
+```json
+{
+  "Authorization": "Bearer THISISYOURTOKEN"
 }
 ```
 
@@ -91,6 +98,10 @@ Links to videos are optionally accessible (using query string param 'extended' i
 ### HTTP Request
 
 `GET https://rest.diamondfoundry.com/api/v1/diamonds`
+
+```shell
+curl 'https://rest.diamondfoundry.com/api/v1/diamonds'
+```
 
 > Response body is structured like this:
 
@@ -213,10 +224,6 @@ Links to videos are optionally accessible (using query string param 'extended' i
     "width_mm": 5.66
   }
 ]
-```
-
-```shell
-curl 'https://rest.diamondfoundry.com/api/v1/diamonds'
 ```
 
 ## /api/v1/diamonds query string params
