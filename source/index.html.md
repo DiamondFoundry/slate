@@ -820,7 +820,20 @@ Sends User Password Reset email
 
 `GET https://rest.diamondfoundry.com/api/v2/diamonds`
 
-Please note valid Authorization header with JWT Token is required. Includes all available diamonds > 0.24 carats.
+This endpoint fetches all available diamonds > 0.24 carats.
+
+Please note valid Authorization header with JWT Token is required. See [login documentation](#login-login).
+
+### Authorization header
+
+> The request header should be formatted like this.
+
+```json
+{
+  "Content-Type": "application/json", 
+  "Authorization": "Bearer YOURTOKENGOESHERE"
+}
+```
 
 ### Response body 
 
