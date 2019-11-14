@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;json&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -212,7 +212,6 @@
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="json">json</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -231,7 +230,7 @@
               </ul>
           </li>
           <li>
-            <a href="#diamond-endpoints" class="toc-h1 toc-link" data-title="Diamond Endpoints">Diamond Endpoints</a>
+            <a href="#v1-diamond-endpoints" class="toc-h1 toc-link" data-title="v1 diamond endpoints">v1 diamond endpoints</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#api-v1-diamonds" class="toc-h2 toc-link" data-title="/api/v1/diamonds">/api/v1/diamonds</a>
@@ -343,9 +342,7 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to Diamond Foundry API! You can use our API to access product data, inventory data, and to place orders.</p>
-
-<p>You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p>Welcome to Diamond Foundry API! You can use our API to access diamond inventory and place orders.</p>
 <h1 id='authentication'>Authentication</h1>
 <p>JWT Token authentication is used.</p>
 
@@ -356,6 +353,8 @@
 <aside class="notice">
 You must replace <code>meowmeowmeow</code> with your personal jwt-token key.
 </aside>
+
+<p>To obtain a JWT token, you must log in using your username and password.</p>
 <h2 id='login-login'>Login /login</h2>
 <p>/login authenticates user, response body contains a success message and response headers include authorization token.</p>
 <pre class="highlight shell tab-shell"><code>curl -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
@@ -365,7 +364,7 @@ You must replace <code>meowmeowmeow</code> with your personal jwt-token key.
   https://rest.diamondfoundry.com/login
 </code></pre>
 <blockquote>
-<p>Request body:</p>
+<p>Request body: </p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"youremail@example.com"</span><span class="p">,</span><span class="w">
@@ -378,11 +377,43 @@ You must replace <code>meowmeowmeow</code> with your personal jwt-token key.
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Authentication successful. JWT token included in this response."</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h1 id='diamond-endpoints'>Diamond Endpoints</h1><h2 id='api-v1-diamonds'>/api/v1/diamonds</h2>
-<p>This endpoint retrieves all purchasable diamonds (available in US) with carat weight above 0.84.</p>
+</span></code></pre>
+<blockquote>
+<p>The response headers will include the Authorization header.</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Authorization"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer THISISYOURTOKEN"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='v1-diamond-endpoints'>v1 diamond endpoints</h1><h2 id='api-v1-diamonds'>/api/v1/diamonds</h2>
+<p>This endpoint retrieves all purchasable diamonds (available in US) with carat weight above 0.84. </p>
+
+<p>Differences between this endpoint and /api/v2/diamonds: </p>
+
+<ol>
+<li>/api/v2/diamonds requires JWT Token</li>
+<li>/api/v1/diamonds includes only diamonds above 0.84 carats</li>
+<li>/api/v1/diamonds includes MSRP pricing only.</li>
+<li>/api/v1/diamonds allows query params to scope the response type. Please see more info and details listed below for each query param.</li>
+</ol>
+
+<p>For account specific pricing you must authenticate and use v2 diamonds.</p>
+
+<p><strong>Certificates</strong></p>
+
+<p>Diamond Foundry has a pdf certificate accessible for diamonds. In order to access it use the following path and interpolate the <code>lot_id</code> of the diamond: 
+<code>https://certificate.diamondfoundry.com/download/${lot_id}.pdf</code> </p>
+
+<p>example: <code>https://certificate.diamondfoundry.com/download/169610.pdf</code></p>
+
+<p>169610 is the lot id.</p>
+
+<p><strong>Videos</strong></p>
+
+<p>Links to videos are optionally accessible (using query string param &#39;extended&#39; in v1 diamonds) and automatically included v2 diamond endpoints. For videos, the <code>url</code> key is a link to the mp3 file. See more info below.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://rest.diamondfoundry.com/api/v1/diamonds</code></p>
-
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://rest.diamondfoundry.com/api/v1/diamonds'</span>
+</code></pre>
 <blockquote>
 <p>Response body is structured like this:</p>
 </blockquote>
@@ -504,9 +535,16 @@ You must replace <code>meowmeowmeow</code> with your personal jwt-token key.
     </span><span class="s2">"width_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.66</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://rest.diamondfoundry.com/api/v1/diamonds'</span>
-</code></pre><h2 id='api-v1-diamonds-query-string-params'>/api/v1/diamonds query string params</h2>
+</span></code></pre><h2 id='api-v1-diamonds-query-string-params'>/api/v1/diamonds query string params</h2>
 <p>/api/v1/diamonds takes optional query string params in array form for attributes &#39;shape&#39;, &#39;color&#39;, &#39;cut_grade&#39;, and &#39;clarity&#39;. /api/v1/diamonds also takes &#39;extended&#39; query string param which optionally nests digital assets within the diamond (for those diamonds that have digital assets associated to it):</p>
+
+<ul>
+<li>Please note; to include digital assets (eg links to video files) you must include the <code>extended</code> query param. See how to do that below.</li>
+</ul>
+
+<p>Also, please note that the url is a link to a video.</p>
+
+<p>See the difference in response bodies below.</p>
 <h3 id='http-request-w-query-string-params-without-extended'>HTTP Request w/ query string params (without extended)</h3>
 <p><code>GET https://rest.diamondfoundry.com/api/v1/diamonds?shape[]=oval&amp;shape[]=pear&amp;color[]=d&amp;color[]=f&amp;color[]=g&amp;color[]=h</code></p>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
@@ -627,7 +665,11 @@ You must replace <code>meowmeowmeow</code> with your personal jwt-token key.
     </span><span class="s2">"width_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.66</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre><h2 id='api-v1-diamonds-extended-t-with-39-extended-39-query-string-param'>/api/v1/diamonds?extended=t with &#39;extended&#39; query string param</h2><h3 id='http-request-w-query-string-params-with-39-extended-39'>HTTP Request w/ query string params (with &#39;extended&#39;)</h3><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+</span></code></pre><h2 id='api-v1-diamonds-extended-t-with-39-extended-39-query-string-param'>/api/v1/diamonds?extended=t with &#39;extended&#39; query string param</h2>
+<ul>
+<li>Please note that the url is a link to a video.</li>
+</ul>
+<h3 id='http-request-w-query-string-params-with-39-extended-39'>HTTP Request w/ query string params (with &#39;extended&#39;)</h3><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"carat"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.18</span><span class="p">,</span><span class="w">
     </span><span class="s2">"clarity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SI1"</span><span class="p">,</span><span class="w">
@@ -1155,8 +1197,18 @@ You must replace <code>meowmeowmeow</code> with your personal jwt-token key.
 <h1 id='diamond-v2-endpoints'>Diamond V2 Endpoints</h1><h2 id='api-v2-diamonds'>/api/v2/diamonds</h2>
 <p><code>GET https://rest.diamondfoundry.com/api/v2/diamonds</code></p>
 
-<p>Please note valid Authorization header with JWT Token is required. Includes all available diamonds &gt; 0.24 carats.</p>
-<h3 id='response-body-3'>Response body</h3>
+<p>This endpoint fetches all available diamonds &gt; 0.24 carats.</p>
+
+<p>Please note valid Authorization header with JWT Token is required. See <a href="#login-login">login documentation</a>.</p>
+<h3 id='authorization-header'>Authorization header</h3>
+<blockquote>
+<p>The request header should be formatted like this.</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"Content-Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"application/json"</span><span class="p">,</span><span class="w"> 
+  </span><span class="s2">"Authorization"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer YOURTOKENGOESHERE"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='response-body-3'>Response body</h3>
 <blockquote>
 <p>Response JSON is structured like this: </p>
 </blockquote>
@@ -1866,7 +1918,6 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="json">json</a>
           </div>
       </div>
     </div>
