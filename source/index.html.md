@@ -19,9 +19,9 @@ Welcome to Diamond Foundry API! You can use our API to access diamond inventory 
 
 # Authentication
 
-JWT Token authentication is used.
+## JWT Token Authentication
 
-DF API expects for the JWT token to be included in requests to Order endpoints and V2 Diamond endpoints:
+You can authorize by providing your JWT token in the header of the request.
 
 `Authorization: Bearer meowmeowmeow`
 
@@ -31,7 +31,8 @@ You must replace <code>meowmeowmeow</code> with your personal jwt-token key.
 
 To obtain a JWT token, you must log in using your username and password.
 
-## Login /login
+### Login /login
+
 /login authenticates user, response body contains a success message and response headers include authorization token.
 
 ```shell
@@ -65,6 +66,27 @@ curl -H "Content-Type: application/json" \
 {
   "Authorization": "Bearer THISISYOURTOKEN"
 }
+```
+
+## API Key Authentication
+
+You can also authorize using your API Key. To get your API key, you must go to your dashboard on the B2B Portal.
+
+Log in here: https://portal.diamondfoundry.com/login
+
+The click the three-lines (hamburger) menu in the upper right corner of the screen. Then click on "Dashboard".
+
+Your API Key should be displayed in a panel on the lower portion of the screen.
+
+You can then use that by adding it onto your API requests, along with your email address: `GET https://rest.diamondfoundry.com/api/v2/diamonds?user_email=your@email.com&user_token=YOUR_TOKEN` 
+
+REMINDER: Always send requests to HTTPS endpoints, or else you are exposing your API key to anyone who is watching.
+
+```shell
+curl -H "Content-Type: application/json" \
+  --request GET \
+  -k \
+  https://rest.diamondfoundry.com/api/v2/diamonds?user_email=your@email.com&user_token=YOUR_TOKEN
 ```
 
 # v1 diamond endpoints
@@ -822,7 +844,7 @@ Sends User Password Reset email
 
 This endpoint fetches all available diamonds > 0.24 carats.
 
-Please note valid Authorization header with JWT Token is required. See [login documentation](#login-login).
+Please note valid Authorization header with JWT Token or API Key is required. See [login documentation](#login-login).
 
 ### Authorization header
 
