@@ -74,7 +74,7 @@ You can also authorize using your API Key. To get your API key, you must go to y
 
 Log in here: https://portal.diamondfoundry.com/login
 
-The click the three-lines (hamburger) menu in the upper right corner of the screen. Then click on "Dashboard".
+Then click the three-lines (hamburger) menu in the upper right corner of the screen. Then click on "Dashboard".
 
 Your API Key should be displayed in a panel on the lower portion of the screen.
 
@@ -89,7 +89,7 @@ curl -H "Content-Type: application/json" \
   https://rest.diamondfoundry.com/api/v2/diamonds?user_email=your@email.com&user_token=YOUR_TOKEN
 ```
 
-# v1 diamond endpoints
+# V1 Diamond endpoints
 
 ## /api/v1/diamonds
 
@@ -97,10 +97,11 @@ This endpoint retrieves all purchasable diamonds (available in US) with carat we
 
 Differences between this endpoint and /api/v2/diamonds: 
 
-1. /api/v2/diamonds requires JWT Token
+1. /api/v2/diamonds requires authentication
 2. /api/v1/diamonds includes only diamonds above 0.84 carats
 3. /api/v1/diamonds includes MSRP pricing only.
-4. /api/v1/diamonds allows query params to scope the response type. Please see more info and details listed below for each query param.
+4. /api/v2/diamonds includes both MSRP price and account discount/wholesale price.
+5. /api/v1/diamonds allows query params to scope the response type. Please see more info and details listed below for each query param.
 
 For account specific pricing you must authenticate and use v2 diamonds.
 
@@ -115,7 +116,9 @@ example: `https://certificate.diamondfoundry.com/download/169610.pdf`
 
 **Videos**
 
-Links to videos are optionally accessible (using query string param 'extended' in v1 diamonds) and automatically included v2 diamond endpoints. For videos, the `url` key is a link to the mp3 file. See more info below.
+Links to videos are optionally accessible using query string param 'extended' in the /api/v1/diamonds endpoint. They are nested by default in the /api/v2/diamonds endpoint. Not all diamonds have videos.
+
+For videos, the `url` key is a link to the mp3 file. For more info view the individual endpoint documentation.
 
 ### HTTP Request
 
@@ -402,7 +405,7 @@ See the difference in response bodies below.
     "digital_assets": [
       {
         "kind": "video",
-        "url": "https://s3.amazonaws.com/videos.diamondfoundry.com/203715.mp4"
+        "url": "https://videos.diamondfoundry.com/203715.mp4"
       }
     ],
     "fluorescence": "None",
@@ -836,15 +839,25 @@ Sends User Password Reset email
 
 > Response will be empty body with status code 200 for successful requests
 
-# Diamond V2 Endpoints
+# V2 Diamond Endpoints
 
 ## /api/v2/diamonds
 
 `GET https://rest.diamondfoundry.com/api/v2/diamonds`
 
-This endpoint fetches all available diamonds > 0.24 carats.
+This endpoint fetches available diamonds >= 0.3 carats.
 
 Please note valid Authorization header with JWT Token or API Key is required. See [login documentation](#login-login).
+
+/api/v2/diamonds includes both MSRP price and account discount/wholesale price.
+
+The ```prices``` array contains your account's wholesale/discount price.
+
+Keys | Description | Type
+--------- | ----------- | ---- 
+unit_price_msrp_usd | MSRP suggested retail price | string
+amount_usd | 'amount_usd' (nested in the prices array) is the wholesale/discount price. This is the price your account will be charged. | string
+
 
 ### Authorization header
 
@@ -1501,12 +1514,12 @@ Please note valid Authorization header with JWT Token is required.
 
 # CustomerAccount Endpoints
 
-Please note valid Authorization header with JWT Token is required.
+**Authentication required
 
 ## GET /api/v2/customer_account
 `GET https://rest.diamondfoundry.com/api/v2/customer_account`
 
-Please note valid Authorization header with JWT Token is required.
+Valid Authorization header with JWT Token or API key is required.
 
 ### Response body
 ```json
