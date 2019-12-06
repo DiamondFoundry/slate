@@ -233,7 +233,7 @@
               </ul>
           </li>
           <li>
-            <a href="#v1-diamond-endpoints" class="toc-h1 toc-link" data-title="v1 diamond endpoints">v1 diamond endpoints</a>
+            <a href="#v1-diamond-endpoints" class="toc-h1 toc-link" data-title="V1 Diamond endpoints">V1 Diamond endpoints</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#api-v1-diamonds" class="toc-h2 toc-link" data-title="/api/v1/diamonds">/api/v1/diamonds</a>
@@ -304,7 +304,7 @@
               </ul>
           </li>
           <li>
-            <a href="#diamond-v2-endpoints" class="toc-h1 toc-link" data-title="Diamond V2 Endpoints">Diamond V2 Endpoints</a>
+            <a href="#v2-diamond-endpoints" class="toc-h1 toc-link" data-title="V2 Diamond Endpoints">V2 Diamond Endpoints</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#api-v2-diamonds" class="toc-h2 toc-link" data-title="/api/v2/diamonds">/api/v2/diamonds</a>
@@ -390,7 +390,7 @@ You must replace <code>meowmeowmeow</code> with your personal jwt-token key.
 
 <p>Log in here: https://portal.diamondfoundry.com/login</p>
 
-<p>The click the three-lines (hamburger) menu in the upper right corner of the screen. Then click on &quot;Dashboard&quot;.</p>
+<p>Then click the three-lines (hamburger) menu in the upper right corner of the screen. Then click on &quot;Dashboard&quot;.</p>
 
 <p>Your API Key should be displayed in a panel on the lower portion of the screen.</p>
 
@@ -401,15 +401,16 @@ You must replace <code>meowmeowmeow</code> with your personal jwt-token key.
   --request GET <span class="se">\</span>
   -k <span class="se">\</span>
   https://rest.diamondfoundry.com/api/v2/diamonds?user_email<span class="o">=</span>your@email.com&amp;user_token<span class="o">=</span>YOUR_TOKEN
-</code></pre><h1 id='v1-diamond-endpoints'>v1 diamond endpoints</h1><h2 id='api-v1-diamonds'>/api/v1/diamonds</h2>
+</code></pre><h1 id='v1-diamond-endpoints'>V1 Diamond endpoints</h1><h2 id='api-v1-diamonds'>/api/v1/diamonds</h2>
 <p>This endpoint retrieves all purchasable diamonds (available in US) with carat weight above 0.84. </p>
 
 <p>Differences between this endpoint and /api/v2/diamonds: </p>
 
 <ol>
-<li>/api/v2/diamonds requires JWT Token</li>
+<li>/api/v2/diamonds requires authentication</li>
 <li>/api/v1/diamonds includes only diamonds above 0.84 carats</li>
 <li>/api/v1/diamonds includes MSRP pricing only.</li>
+<li>/api/v2/diamonds includes both MSRP price and account discount/wholesale price.</li>
 <li>/api/v1/diamonds allows query params to scope the response type. Please see more info and details listed below for each query param.</li>
 </ol>
 
@@ -426,7 +427,9 @@ You must replace <code>meowmeowmeow</code> with your personal jwt-token key.
 
 <p><strong>Videos</strong></p>
 
-<p>Links to videos are optionally accessible (using query string param &#39;extended&#39; in v1 diamonds) and automatically included v2 diamond endpoints. For videos, the <code>url</code> key is a link to the mp3 file. See more info below.</p>
+<p>Links to videos are optionally accessible using query string param &#39;extended&#39; in the /api/v1/diamonds endpoint. They are nested by default in the /api/v2/diamonds endpoint. Not all diamonds have videos.</p>
+
+<p>For videos, the <code>url</code> key is a link to the mp3 file. For more info view the individual endpoint documentation.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://rest.diamondfoundry.com/api/v1/diamonds</code></p>
 <pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://rest.diamondfoundry.com/api/v1/diamonds'</span>
@@ -700,7 +703,7 @@ You must replace <code>meowmeowmeow</code> with your personal jwt-token key.
     </span><span class="s2">"digital_assets"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
         </span><span class="s2">"kind"</span><span class="p">:</span><span class="w"> </span><span class="s2">"video"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/videos.diamondfoundry.com/203715.mp4"</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://videos.diamondfoundry.com/203715.mp4"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="s2">"fluorescence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
@@ -1211,12 +1214,35 @@ You must replace <code>meowmeowmeow</code> with your personal jwt-token key.
 <blockquote>
 <p>Response will be empty body with status code 200 for successful requests</p>
 </blockquote>
-<h1 id='diamond-v2-endpoints'>Diamond V2 Endpoints</h1><h2 id='api-v2-diamonds'>/api/v2/diamonds</h2>
+<h1 id='v2-diamond-endpoints'>V2 Diamond Endpoints</h1><h2 id='api-v2-diamonds'>/api/v2/diamonds</h2>
 <p><code>GET https://rest.diamondfoundry.com/api/v2/diamonds</code></p>
 
-<p>This endpoint fetches all available diamonds &gt; 0.24 carats.</p>
+<p>This endpoint fetches available diamonds &gt;= 0.3 carats.</p>
 
 <p>Please note valid Authorization header with JWT Token or API Key is required. See <a href="#login-login">login documentation</a>.</p>
+
+<p>/api/v2/diamonds includes both MSRP price and account discount/wholesale price.</p>
+
+<p>The <code>prices</code> array contains your account&#39;s wholesale/discount price.</p>
+
+<table><thead>
+<tr>
+<th>Keys</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>unit_price_msrp_usd</td>
+<td>MSRP suggested retail price</td>
+<td>string</td>
+</tr>
+<tr>
+<td>amount_usd</td>
+<td>&#39;amount_usd&#39; (nested in the prices array) is the wholesale/discount price. This is the price your account will be charged.</td>
+<td>string</td>
+</tr>
+</tbody></table>
 <h3 id='authorization-header'>Authorization header</h3>
 <blockquote>
 <p>The request header should be formatted like this.</p>
@@ -1846,11 +1872,11 @@ You must replace <code>meowmeowmeow</code> with your personal jwt-token key.
   </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-22T20:37:52.567Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h1 id='customeraccount-endpoints'>CustomerAccount Endpoints</h1>
-<p>Please note valid Authorization header with JWT Token is required.</p>
+<p>**Authentication required</p>
 <h2 id='get-api-v2-customer_account'>GET /api/v2/customer_account</h2>
 <p><code>GET https://rest.diamondfoundry.com/api/v2/customer_account</code></p>
 
-<p>Please note valid Authorization header with JWT Token is required.</p>
+<p>Valid Authorization header with JWT Token or API key is required.</p>
 <h3 id='response-body-7'>Response body</h3><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
