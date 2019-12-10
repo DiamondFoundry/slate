@@ -532,8 +532,7 @@ This endpoint retrieves a specific diamond.
 {
   "order":  
 	  {
-			"source_order_id": 781449461863,
-			"payment_method": "net30",
+			"payment_method": "B2B Stripe",
 			"shipping_address_attributes":  
 				{
 					"street_address": "731 S Spring St",
@@ -547,7 +546,7 @@ This endpoint retrieves a specific diamond.
 					"diamond_id": "c41a93db-2b6a-4ffe-95e0-fa24b0d3f3d6",
 					"sold_price": 500.45,
 					"tax_collected": "36.28",
-					"tax_rate": 0.0725,
+					"tax_rate": 0,
 					"quantity": 1
 				}]
     }
@@ -558,8 +557,7 @@ This endpoint retrieves a specific diamond.
 
 Parameter | Description | Type | Required
 --------- | ----------- | ---- | --------
-source_order_id | The order ID on the platform where the order was placed | int | required
-payment_method | Method used to pay for order | string | optional
+payment_method | Method used to pay for order. To pay with your credit card saved on the B2B Portal, use 'B2B Stripe'. To pay on lay away, if you are approved to do so, send the empty string, ''. | string | optional
 metadata | Additional metadata about the order | jsonb | optional
 
 ## Nested shipping_address_attributes
@@ -581,8 +579,8 @@ Parameter | Description | Type | Required
 --------- | ----------- | ---- | --------
 diamond_id | DF API diamond id | uuid/string | required
 sold_price | Amount diamond sold for | decimal | required
-tax_collected | Tax collected on diamond | decimal | optional
-tax_rate | Sales tax rate pct of where sale occurred (ex 0.0125) | decimal | optional
+tax_collected | Tax collected on diamond. Since this is a B2B sale, this should always be 0. | decimal | optional
+tax_rate | Sales tax rate pct of where sale occurred (ex 0.0125). Since this is a B2B sale, this should always be 0. | decimal | optional
 quantity | Quantity sold | integer | required
 
 ## GET /api/v1/orders
