@@ -130,7 +130,11 @@ For more info see the individual endpoint documentation.
 
 Using the ```/api/v1/diamonds``` endpoint specifically; to include videos use the 'extended' query string param.
 
-eg GET ```https://rest.diamondfoundry.com/api/v1/diamonds?extended=t```. This is described both here and below in the query param portion of the endpoint documentation.
+With query string param for digital assets: 
+
+GET ```https://rest.diamondfoundry.com/api/v1/diamonds?extended=t```. 
+
+This is also described a second time in the query param portion of this endpoint documentation.
 
 ### HTTP Request
 
