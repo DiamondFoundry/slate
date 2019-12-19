@@ -270,8 +270,6 @@ curl 'https://rest.diamondfoundry.com/api/v1/diamonds'
 
 Please note; to include digital assets (eg links to video files) you must include the `extended` query param. See how to do that below.
 
-Also, please note that the url is a link to a video.
-
 See the difference in response bodies below.
 
 ### HTTP Request w/ query string params (without extended)
@@ -400,7 +398,15 @@ See the difference in response bodies below.
 
 ## /api/v1/diamonds?extended=t with 'extended' query string param
 
-* Please note that the url is a link to a video.
+### More video documentation
+
+* Please note that the url is a link to the digital asset.
+
+- Not all diamonds have a video. 
+
+- Diamonds that have a video or other digital assets have the digital assets nested under the ```digital_assets``` key. See the example response body.
+
+- All videos are served over ```https``` and CDN backed.
 
 ### HTTP Request w/ query string params (with 'extended')
 
