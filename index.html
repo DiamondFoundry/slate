@@ -575,8 +575,6 @@ You must replace <code>meowmeowmeow</code> with your personal jwt-token key.
 
 <p>Please note; to include digital assets (eg links to video files) you must include the <code>extended</code> query param. See how to do that below.</p>
 
-<p>Also, please note that the url is a link to a video.</p>
-
 <p>See the difference in response bodies below.</p>
 <h3 id='http-request-w-query-string-params-without-extended'>HTTP Request w/ query string params (without extended)</h3>
 <p><code>GET https://rest.diamondfoundry.com/api/v1/diamonds?shape[]=oval&amp;shape[]=pear&amp;color[]=d&amp;color[]=f&amp;color[]=g&amp;color[]=h</code></p>
@@ -698,9 +696,12 @@ You must replace <code>meowmeowmeow</code> with your personal jwt-token key.
     </span><span class="s2">"width_mm"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.66</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre><h2 id='api-v1-diamonds-extended-t-with-39-extended-39-query-string-param'>/api/v1/diamonds?extended=t with &#39;extended&#39; query string param</h2>
+</span></code></pre><h2 id='api-v1-diamonds-extended-t-with-39-extended-39-query-string-param'>/api/v1/diamonds?extended=t with &#39;extended&#39; query string param</h2><h3 id='more-video-documentation'>More video documentation</h3>
 <ul>
-<li>Please note that the url is a link to a video.</li>
+<li><p>Please note that the url is a link to the digital asset.</p></li>
+<li><p>Not all diamonds have a video. </p></li>
+<li><p>Diamonds that have a video or other digital assets have the digital assets nested under the <code>digital_assets</code> key. See the example response body.</p></li>
+<li><p>All videos are served over <code>https</code> and CDN backed.</p></li>
 </ul>
 <h3 id='http-request-w-query-string-params-with-39-extended-39'>HTTP Request w/ query string params (with &#39;extended&#39;)</h3><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
