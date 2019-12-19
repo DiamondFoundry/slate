@@ -114,11 +114,23 @@ example: `https://certificate.diamondfoundry.com/download/169610.pdf`
 
 169610 is the lot id.
 
-**Videos**
+## Videos
 
-Links to videos are optionally accessible using query string param 'extended' in the /api/v1/diamonds endpoint. They are nested by default in the /api/v2/diamonds endpoint. Not all diamonds have videos.
+Links to videos are optionally accessible using query string param 'extended' in the /api/v1/diamonds endpoint.
 
-For videos, the `url` key is a link to the mp3 file. For more info view the individual endpoint documentation.
+They are nested by default in the /api/v2/diamonds endpoint. 
+
+Not all diamonds have videos.
+
+For videos, the `url` key is a link to the mp3 file. 
+
+All digital assets including videos are served over ```https``` and cdn backed.
+
+For more info see the individual endpoint documentation. 
+
+Using the ```/api/v1/diamonds``` endpoint specifically; to include videos use the 'extended' query string param.
+
+eg GET ```https://rest.diamondfoundry.com/api/v1/diamonds?extended=t```. This is described both here and below in the query param portion of the endpoint documentation.
 
 ### HTTP Request
 
@@ -252,9 +264,11 @@ curl 'https://rest.diamondfoundry.com/api/v1/diamonds'
 ```
 
 ## /api/v1/diamonds query string params
-/api/v1/diamonds takes optional query string params in array form for attributes 'shape', 'color', 'cut_grade', and 'clarity'. /api/v1/diamonds also takes 'extended' query string param which optionally nests digital assets within the diamond (for those diamonds that have digital assets associated to it):
+/api/v1/diamonds takes optional query string params in array form for attributes 'shape', 'color', 'cut_grade', and 'clarity'. 
 
-* Please note; to include digital assets (eg links to video files) you must include the `extended` query param. See how to do that below.
+/api/v1/diamonds also takes 'extended' query string param which optionally nests digital assets within the diamond (for those diamonds that have digital assets associated to it):
+
+Please note; to include digital assets (eg links to video files) you must include the `extended` query param. See how to do that below.
 
 Also, please note that the url is a link to a video.
 
